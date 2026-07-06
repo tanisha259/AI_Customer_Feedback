@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Send, Loader2 } from "lucide-react";
+import { Send, Loader2, Trash2 } from "lucide-react";
 
 type Cited = { id: string; content: string; channel: string; sentiment: string | null };
 type Turn = { role: "user" | "assistant"; text: string; cited?: Cited[] };
@@ -42,18 +42,29 @@ export default function AskLoopPage() {
 
   return (
     <div className="px-8 pt-8 flex flex-col" style={{ height: "calc(100vh - 73px)" }}>
-      <div>
-        <div className="font-display text-2xl font-semibold text-ink">Ask LOOP</div>
-        <div className="text-sm text-[#6B6B80] mt-0.5 mb-4">Plain-English answers, grounded in real feedback</div>
+      <div className="flex items-center justify-between">
+        <div>
+          <div className="font-display text-2xl font-semibold text-ink">Ask LOOP</div>
+          <div className="text-sm text-[#6B6B80] mt-0.5 mb-4">Plain-English answers, grounded in real feedback</div>
+        </div>
+        {history.length > 0 && (
+          <button
+            onClick={() => setHistory([])}
+            className="flex items-center gap-1.5 text-xs text-[#6B6B80] hover:text-red-500 transition-colors px-3 py-1.5 rounded-lg hover:bg-red-50 border border-transparent hover:border-red-100"
+          >
+            <Trash2 size={13} /> Clear chat
+          </button>
+        )}
       </div>
 
       <div className="flex-1 overflow-y-auto pb-4">
         {history.length === 0 && (
           <div className="flex flex-col gap-2.5 mt-2">
             <div className="text-[#6B6B80] text-sm">Answers are grounded only in the feedback stored in this workspace.</div>
+            <div className="text-xs font-semibold text-[#6B6B80] uppercase tracking-wide mt-1">Try asking</div>
             <div className="flex flex-wrap gap-2">
               {SUGGESTIONS.map((s) => (
-                <button key={s} onClick={() => setQuestion(s)} className="px-3 py-2 rounded-full border border-[#E7E2D6] bg-white text-xs">{s}</button>
+                <button key={s} onClick={() => ask(s)} className="px-3 py-2 rounded-full border border-[#E7E2D6] bg-white text-xs hover:bg-[#F5F2FC] hover:border-violet hover:text-violet transition-colors">{s}</button>
               ))}
             </div>
           </div>
