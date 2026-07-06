@@ -18,11 +18,20 @@ type Feedback = {
   createdAt: string; themes: { theme: { name: string } }[];
 };
 
-function StatCard({ label, value }: { label: string; value: string | number }) {
+function StatCard({ label, value, accent }: { label: string; value: string | number; accent?: string }) {
   return (
     <div className="flex-1 bg-white border border-[#E7E2D6] rounded-2xl px-5 py-4">
       <div className="text-[11px] font-semibold text-[#6B6B80] uppercase tracking-wide">{label}</div>
-      <div className="font-mono text-2xl font-semibold text-ink mt-1.5">{value}</div>
+      <div className="font-mono text-2xl font-semibold mt-1.5" style={{ color: accent ?? "#20203A" }}>{value}</div>
+    </div>
+  );
+}
+
+function SkeletonCard() {
+  return (
+    <div className="flex-1 bg-white border border-[#E7E2D6] rounded-2xl px-5 py-4 animate-pulse">
+      <div className="h-2.5 w-20 bg-[#E7E2D6] rounded mb-3" />
+      <div className="h-7 w-14 bg-[#E7E2D6] rounded" />
     </div>
   );
 }
@@ -44,6 +53,9 @@ export default function DashboardPage() {
   const now = Date.now();
   const negPct = items.length
     ? Math.round((items.filter((i) => i.sentiment === "NEG").length / items.length) * 100)
+    : 0;
+  const posPct = items.length
+    ? Math.round((items.filter((i) => i.sentiment === "POS").length / items.length) * 100)
     : 0;
   const newThisWeek = items.filter((i) => now - new Date(i.createdAt).getTime() < 7 * 86400000).length;
 
@@ -77,7 +89,17 @@ export default function DashboardPage() {
     .sort((a, b) => b[1] - a[1]).slice(0, 6)
     .map(([name, count]) => ({ name, count }));
 
-  if (loading) return <div className="p-8 text-sm text-[#6B6B80]">Loading dashboard…</div>;
+  if (loading) return (
+    <div className="p-8 flex flex-col gap-6">
+      <div>
+        <div className="h-7 w-40 bg-[#E7E2D6] rounded animate-pulse mb-2" />
+        <div className="h-4 w-64 bg-[#E7E2D6] rounded animate-pulse" />
+      </div>
+      <div className="flex gap-4">
+        <SkeletonCard /><SkeletonCard /><SkeletonCard /><SkeletonCard />
+      </div>
+    </div>
+  );
 
   return (
     <div className="p-8 flex flex-col gap-6">
@@ -88,7 +110,8 @@ export default function DashboardPage() {
 
       <div className="flex gap-4">
         <StatCard label="Total feedback" value={items.length} />
-        <StatCard label="Negative (window)" value={`${negPct}%`} />
+        <StatCard label="Positive" value={`${posPct}%`} accent="#4F9A73" />
+        <StatCard label="Negative" value={`${negPct}%`} accent="#D9534F" />
         <StatCard label="New this week" value={newThisWeek} />
         <StatCard label="Active themes" value={Object.keys(themeCounts).length} />
       </div>
