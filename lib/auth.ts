@@ -6,13 +6,17 @@ import bcrypt from "bcryptjs";
 import { db } from "@/lib/db";
 
 export const authOptions: NextAuthOptions = {
+  // PrismaAdapter is needed to persist Google OAuth accounts/users to the DB.
+  // We use strategy: "jwt" so no Session table rows are created — this is
+  // required when mixing CredentialsProvider with an adapter, otherwise
+  // sign-in after sign-out breaks because NextAuth looks for a DB session.
   adapter: PrismaAdapter(db),
   session: { strategy: "jwt" },
   pages: { signIn: "/login" },
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+      clientId: process.env.GOOGLE_CLIENT_ID ?? "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
     }),
     CredentialsProvider({
       name: "Credentials",
@@ -23,26 +27,14 @@ export const authOptions: NextAuthOptions = {
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) return null;
 
-        console.log("Authorizing user:", credentials.email);
         const user = await db.user.findUnique({
           where: { email: credentials.email.toLowerCase() },
         });
-        if (!user) {
-          console.log("User not found.");
-          return null;
-        }
-        if (!user.passwordHash) {
-          console.log("User has no passwordHash.");
-          return null;
-        }
+
+        if (!user || !user.passwordHash) return null;
 
         const valid = await bcrypt.compare(credentials.password, user.passwordHash);
-        if (!valid) {
-          console.log("Invalid password.");
-          return null;
-        }
-
-        console.log("User authorized successfully:", user.id);
+        if (!valid) return null;
 
         return {
           id: user.id,
@@ -55,9 +47,8 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   events: {
-    async createUser(message) {
-      const user = message.user;
-      // If the user was created without a workspace (e.g. via Google OAuth)
+    // Auto-create a workspace for users who sign up via Google OAuth
+    async createUser({ user }) {
       if (!(user as any).workspaceId) {
         const workspace = await db.workspace.create({
           data: {
@@ -72,23 +63,25 @@ export const authOptions: NextAuthOptions = {
     },
   },
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user, account }) {
+      // On initial sign-in, user object is present — store custom fields in token
       if (user) {
         token.id = user.id;
         token.role = (user as any).role;
         token.workspaceId = (user as any).workspaceId;
       }
-      
-      // On first sign in with Google, the workspaceId might have been added in the createUser event
-      // *after* the initial user object was created. Refetch if missing.
-      if (!token.workspaceId && token.id) {
+
+      // For Google OAuth: workspaceId is assigned in the createUser event,
+      // which fires after the JWT callback on first sign-in. Re-fetch from DB
+      // if it's missing (only happens on very first Google sign-in).
+      if (account?.provider === "google" && !token.workspaceId && token.id) {
         const dbUser = await db.user.findUnique({ where: { id: token.id as string } });
         if (dbUser) {
           token.role = dbUser.role;
           token.workspaceId = dbUser.workspaceId;
         }
       }
-      
+
       return token;
     },
     async session({ session, token }) {
@@ -101,3 +94,4 @@ export const authOptions: NextAuthOptions = {
     },
   },
 };
+
