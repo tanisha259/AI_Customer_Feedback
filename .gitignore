@@ -6,3 +6,15 @@ node_modules
 dist
 *.log
 .DS_Store
+Thumbs.db
+
+# Prisma generated client cache
+node_modules/.prisma
+
+# Local test/debug scripts
+test-*.ts
+test-*.js
+
+# Editor directories
+.vscode
+.idea
