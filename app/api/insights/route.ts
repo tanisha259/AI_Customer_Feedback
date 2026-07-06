@@ -39,7 +39,7 @@ export async function POST(req: Request) {
     questionVector = await embedText(parsed.data.question);
   } catch (e) {
     return NextResponse.json(
-      { error: "Embeddings provider isn't configured — set VOYAGE_API_KEY to enable Ask LOOP." },
+      { error: "Embeddings provider isn't configured — set GEMINI_API_KEY to enable Ask LOOP." },
       { status: 503 }
     );
   }
