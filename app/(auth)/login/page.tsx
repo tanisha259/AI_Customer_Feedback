@@ -27,36 +27,46 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-paper px-4">
-      <div className="w-full max-w-sm bg-white border border-[#E7E2D6] rounded-2xl p-8 shadow-sm">
-        <div className="font-display text-2xl font-semibold text-ink mb-1">LOOP</div>
-        <div className="text-sm text-[#6B6B80] mb-6">Log in to your workspace</div>
+    <div className="min-h-screen flex items-center justify-center bg-paper relative overflow-hidden px-4 font-sans">
+      {/* Decorative background blur */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sage/10 rounded-full blur-3xl pointer-events-none" />
+      
+      <div className="w-full max-w-[400px] bg-surface rounded-[24px] p-10 shadow-float border border-slate-200/60 relative z-10">
+        <div className="flex flex-col items-center mb-8">
+          <div className="w-12 h-12 bg-gradient-to-br from-violet to-violetDeep rounded-xl flex items-center justify-center shadow-soft mb-4">
+            <span className="font-display font-bold text-white text-xl">L</span>
+          </div>
+          <h1 className="font-display text-2xl font-bold text-ink text-center">Welcome back</h1>
+          <p className="text-sm text-slate-soft mt-2 text-center">Log in to your workspace</p>
+        </div>
 
-        <form onSubmit={onSubmit} className="flex flex-col gap-3">
+        <form onSubmit={onSubmit} className="flex flex-col gap-4">
           <div>
-            <label className="text-xs font-semibold text-ink">Email</label>
+            <label className="text-xs font-semibold text-slate-soft uppercase tracking-wider">Email</label>
             <input
               type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
-              className="w-full mt-1 px-3 py-2 rounded-lg border border-[#E7E2D6] text-sm"
+              className="w-full mt-1.5 px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-4 focus:ring-violet/10 focus:border-violet transition-all duration-200"
             />
           </div>
           <div>
-            <label className="text-xs font-semibold text-ink">Password</label>
+            <label className="text-xs font-semibold text-slate-soft uppercase tracking-wider">Password</label>
             <input
               type="password" required value={password} onChange={(e) => setPassword(e.target.value)}
-              className="w-full mt-1 px-3 py-2 rounded-lg border border-[#E7E2D6] text-sm"
+              className="w-full mt-1.5 px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-4 focus:ring-violet/10 focus:border-violet transition-all duration-200"
             />
           </div>
-          {error && <div className="text-xs text-coral">{error}</div>}
+          {error && <div className="text-xs font-medium text-coral bg-coral/10 p-3 rounded-lg text-center">{error}</div>}
+          
           <button
             type="submit" disabled={busy}
-            className="mt-2 w-full py-2.5 rounded-lg bg-violet text-white text-sm font-semibold disabled:opacity-60"
+            className="mt-4 w-full py-3 rounded-xl bg-gradient-to-r from-violet to-violetDeep text-white text-sm font-semibold shadow-soft hover:shadow-float hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-60 disabled:hover:translate-y-0"
           >
             {busy ? "Logging in…" : "Log in"}
           </button>
         </form>
 
-        <div className="mt-4 pt-4 border-t border-[#E7E2D6]">
+        <div className="mt-6 pt-6 border-t border-slate-100">
           <button
             type="button"
             onClick={async () => {
@@ -66,11 +76,10 @@ export default function LoginPage() {
               } catch (e) {
                 console.error(e);
               }
-              // If we didn't redirect, reset busy state
               setBusy(false);
             }}
             disabled={busy}
-            className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg border border-[#E7E2D6] bg-white text-ink text-sm font-semibold hover:bg-gray-50 transition-colors disabled:opacity-60"
+            className="w-full flex items-center justify-center gap-2.5 py-3 rounded-xl border border-slate-200 bg-surface text-ink text-sm font-semibold hover:bg-slate-50 transition-colors disabled:opacity-60"
           >
             <svg viewBox="0 0 24 24" className="w-5 h-5">
               <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
@@ -82,13 +91,14 @@ export default function LoginPage() {
           </button>
         </div>
 
-        <div className="mt-5 text-xs text-[#6B6B80] leading-relaxed border-t border-[#E7E2D6] pt-4">
-          Demo credentials (seeded workspace "Northwind Analytics"):<br />
-          admin@northwind.demo · analyst@northwind.demo · viewer@northwind.demo<br />
-          Password for all: <span className="font-mono">Password123!</span>
+        <div className="mt-8 text-xs text-slate-soft leading-relaxed bg-slate-50 p-4 rounded-xl text-center">
+          <p className="font-semibold text-ink mb-1">Demo credentials</p>
+          admin@northwind.demo<br />
+          Password: <span className="font-mono bg-white px-1 py-0.5 rounded border border-slate-200">Password123!</span>
         </div>
-        <div className="mt-4 text-xs text-center">
-          <Link href="/signup" className="text-violetDeep font-semibold">Create a new workspace instead →</Link>
+        
+        <div className="mt-6 text-sm text-center">
+          <Link href="/signup" className="text-violet font-semibold hover:text-violetDeep transition-colors">Create a new workspace instead →</Link>
         </div>
       </div>
     </div>

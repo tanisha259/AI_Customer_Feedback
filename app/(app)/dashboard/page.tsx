@@ -7,10 +7,10 @@ import {
 } from "recharts";
 
 const THEME_COLOR: Record<string, string> = {
-  "Onboarding": "#6E56CF", "Billing & Invoicing": "#E3A33E", "Mobile Experience": "#4F9A73",
-  "Performance & Speed": "#D9534F", "Integrations & SSO": "#3B82A6", "Reporting & Exports": "#8A5CF6",
-  "Customer Support": "#C2708A", "Pricing": "#B08968", "UI / UX Design": "#5C9EAD",
-  "Feature Requests": "#7C9A4A",
+  "Onboarding": "#4F46E5", "Billing & Invoicing": "#F59E0B", "Mobile Experience": "#10B981",
+  "Performance & Speed": "#EF4444", "Integrations & SSO": "#0EA5E9", "Reporting & Exports": "#8B5CF6",
+  "Customer Support": "#EC4899", "Pricing": "#D97706", "UI / UX Design": "#06B6D4",
+  "Feature Requests": "#84CC16",
 };
 
 type Feedback = {
@@ -20,18 +20,18 @@ type Feedback = {
 
 function StatCard({ label, value, accent }: { label: string; value: string | number; accent?: string }) {
   return (
-    <div className="flex-1 bg-white border border-[#E7E2D6] rounded-2xl px-5 py-4">
-      <div className="text-[11px] font-semibold text-[#6B6B80] uppercase tracking-wide">{label}</div>
-      <div className="font-mono text-2xl font-semibold mt-1.5" style={{ color: accent ?? "#20203A" }}>{value}</div>
+    <div className="flex-1 bg-surface border border-slate-200/60 shadow-soft hover:shadow-float transition-all duration-300 rounded-2xl px-6 py-5">
+      <div className="text-[11px] font-bold text-slate-soft uppercase tracking-wider mb-2">{label}</div>
+      <div className="font-display text-3xl font-bold" style={{ color: accent ?? "#0F172A" }}>{value}</div>
     </div>
   );
 }
 
 function SkeletonCard() {
   return (
-    <div className="flex-1 bg-white border border-[#E7E2D6] rounded-2xl px-5 py-4 animate-pulse">
-      <div className="h-2.5 w-20 bg-[#E7E2D6] rounded mb-3" />
-      <div className="h-7 w-14 bg-[#E7E2D6] rounded" />
+    <div className="flex-1 bg-surface border border-slate-200/60 shadow-soft rounded-2xl px-6 py-5 animate-pulse">
+      <div className="h-3 w-24 bg-slate-200 rounded mb-4" />
+      <div className="h-8 w-16 bg-slate-200 rounded" />
     </div>
   );
 }
@@ -41,9 +41,6 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Dashboard pulls a wide window (last 90 days, page size 500) rather
-    // than every row — for a real workload swap this for a dedicated
-    // aggregate endpoint that runs GROUP BY in Postgres.
     fetch("/api/feedback?pageSize=500&days=90")
       .then((r) => r.json())
       .then((data) => setItems(data.items ?? []))
@@ -76,9 +73,9 @@ export default function DashboardPage() {
   }, [items]);
 
   const sentimentData = [
-    { name: "Positive", value: items.filter((i) => i.sentiment === "POS").length, color: "#4F9A73" },
-    { name: "Neutral", value: items.filter((i) => i.sentiment === "NEU").length, color: "#8A8AA0" },
-    { name: "Negative", value: items.filter((i) => i.sentiment === "NEG").length, color: "#D9534F" },
+    { name: "Positive", value: items.filter((i) => i.sentiment === "POS").length, color: "#10B981" },
+    { name: "Neutral", value: items.filter((i) => i.sentiment === "NEU").length, color: "#94A3B8" },
+    { name: "Negative", value: items.filter((i) => i.sentiment === "NEG").length, color: "#EF4444" },
   ];
 
   const themeCounts: Record<string, number> = {};
@@ -90,81 +87,94 @@ export default function DashboardPage() {
     .map(([name, count]) => ({ name, count }));
 
   if (loading) return (
-    <div className="p-8 flex flex-col gap-6">
+    <div className="p-8 max-w-7xl mx-auto flex flex-col gap-8 font-sans">
       <div>
-        <div className="h-7 w-40 bg-[#E7E2D6] rounded animate-pulse mb-2" />
-        <div className="h-4 w-64 bg-[#E7E2D6] rounded animate-pulse" />
+        <div className="h-8 w-48 bg-slate-200 rounded animate-pulse mb-3" />
+        <div className="h-4 w-72 bg-slate-200 rounded animate-pulse" />
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-5">
         <SkeletonCard /><SkeletonCard /><SkeletonCard /><SkeletonCard />
       </div>
     </div>
   );
 
   return (
-    <div className="p-8 flex flex-col gap-6">
+    <div className="p-8 max-w-7xl mx-auto flex flex-col gap-8 font-sans relative">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-violet/5 rounded-full blur-[100px] pointer-events-none -z-10" />
+      
       <div>
-        <div className="font-display text-2xl font-semibold text-ink">Dashboard</div>
-        <div className="text-sm text-[#6B6B80] mt-0.5">What your customers are telling you, at a glance</div>
+        <h1 className="font-display text-3xl font-bold text-ink tracking-tight">Dashboard</h1>
+        <p className="text-slate-soft mt-1.5 font-medium">What your customers are telling you, at a glance</p>
       </div>
 
-      <div className="flex gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
         <StatCard label="Total feedback" value={items.length} />
-        <StatCard label="Positive" value={`${posPct}%`} accent="#4F9A73" />
-        <StatCard label="Negative" value={`${negPct}%`} accent="#D9534F" />
+        <StatCard label="Positive" value={`${posPct}%`} accent="#10B981" />
+        <StatCard label="Negative" value={`${negPct}%`} accent="#EF4444" />
         <StatCard label="New this week" value={newThisWeek} />
         <StatCard label="Active themes" value={Object.keys(themeCounts).length} />
       </div>
 
-      <div className="flex gap-5">
-        <div className="flex-[2] bg-white border border-[#E7E2D6] rounded-2xl p-5">
-          <div className="font-semibold text-sm text-ink mb-3">Feedback volume — last 30 days</div>
-          <ResponsiveContainer width="100%" height={220}>
-            <AreaChart data={volumeData}>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2 bg-surface border border-slate-200/60 shadow-soft rounded-2xl p-6">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="font-display font-semibold text-lg text-ink">Feedback volume</h2>
+            <span className="text-xs font-medium text-slate-soft bg-slate-100 px-2 py-1 rounded-md">Last 30 days</span>
+          </div>
+          <ResponsiveContainer width="100%" height={260}>
+            <AreaChart data={volumeData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
               <defs>
                 <linearGradient id="volGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#6E56CF" stopOpacity={0.35} />
-                  <stop offset="100%" stopColor="#6E56CF" stopOpacity={0} />
+                  <stop offset="0%" stopColor="#4F46E5" stopOpacity={0.2} />
+                  <stop offset="100%" stopColor="#4F46E5" stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <CartesianGrid vertical={false} stroke="#E7E2D6" />
-              <XAxis dataKey="date" tick={{ fontSize: 10, fill: "#6B6B80" }} interval={4} axisLine={false} tickLine={false} />
-              <YAxis tick={{ fontSize: 10, fill: "#6B6B80" }} axisLine={false} tickLine={false} width={24} />
-              <Tooltip contentStyle={{ fontSize: 12, borderRadius: 8, border: "1px solid #E7E2D6" }} />
-              <Area type="monotone" dataKey="count" stroke="#6E56CF" strokeWidth={2} fill="url(#volGrad)" />
+              <CartesianGrid vertical={false} stroke="#E2E8F0" strokeDasharray="4 4" />
+              <XAxis dataKey="date" tick={{ fontSize: 11, fill: "#64748B" }} interval={4} axisLine={false} tickLine={false} dy={10} />
+              <YAxis tick={{ fontSize: 11, fill: "#64748B" }} axisLine={false} tickLine={false} />
+              <Tooltip 
+                contentStyle={{ fontSize: 13, borderRadius: 12, border: "none", boxShadow: "0 10px 40px -10px rgba(0,0,0,0.12)", padding: "12px 16px", fontWeight: 500 }} 
+                itemStyle={{ color: "#0F172A" }}
+              />
+              <Area type="monotone" dataKey="count" stroke="#4F46E5" strokeWidth={3} fill="url(#volGrad)" activeDot={{ r: 6, strokeWidth: 0, fill: "#4F46E5" }} />
             </AreaChart>
           </ResponsiveContainer>
         </div>
 
-        <div className="flex-1 bg-white border border-[#E7E2D6] rounded-2xl p-5">
-          <div className="font-semibold text-sm text-ink mb-3">Sentiment breakdown</div>
-          <ResponsiveContainer width="100%" height={180}>
-            <PieChart>
-              <Pie data={sentimentData} dataKey="value" nameKey="name" innerRadius={45} outerRadius={70} paddingAngle={3}>
-                {sentimentData.map((d, i) => <Cell key={i} fill={d.color} />)}
-              </Pie>
-              <Tooltip contentStyle={{ fontSize: 12, borderRadius: 8, border: "1px solid #E7E2D6" }} />
-            </PieChart>
-          </ResponsiveContainer>
-          <div className="flex justify-center gap-4 mt-1">
+        <div className="bg-surface border border-slate-200/60 shadow-soft rounded-2xl p-6 flex flex-col">
+          <h2 className="font-display font-semibold text-lg text-ink mb-6">Sentiment breakdown</h2>
+          <div className="flex-1 min-h-[220px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie data={sentimentData} dataKey="value" nameKey="name" innerRadius={60} outerRadius={85} paddingAngle={5} cornerRadius={4}>
+                  {sentimentData.map((d, i) => <Cell key={i} fill={d.color} />)}
+                </Pie>
+                <Tooltip contentStyle={{ fontSize: 13, borderRadius: 12, border: "none", boxShadow: "0 10px 40px -10px rgba(0,0,0,0.12)", padding: "8px 12px", fontWeight: 500 }} />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+          <div className="flex justify-center gap-5 mt-4">
             {sentimentData.map((d) => (
-              <div key={d.name} className="flex items-center gap-1.5 text-[11px] text-[#6B6B80]">
-                <span className="w-2 h-2 rounded-full" style={{ background: d.color }} />{d.name}
+              <div key={d.name} className="flex items-center gap-2 text-xs font-medium text-slate-600">
+                <span className="w-2.5 h-2.5 rounded-full" style={{ background: d.color }} />{d.name}
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      <div className="bg-white border border-[#E7E2D6] rounded-2xl p-5">
-        <div className="font-semibold text-sm text-ink mb-3">Top themes</div>
-        <ResponsiveContainer width="100%" height={200}>
-          <BarChart data={topThemes} layout="vertical" margin={{ left: 10 }}>
-            <XAxis type="number" tick={{ fontSize: 10, fill: "#6B6B80" }} axisLine={false} tickLine={false} />
-            <YAxis type="category" dataKey="name" tick={{ fontSize: 11.5, fill: "#20203A" }} axisLine={false} tickLine={false} width={140} />
-            <Tooltip contentStyle={{ fontSize: 12, borderRadius: 8, border: "1px solid #E7E2D6" }} />
-            <Bar dataKey="count" radius={[0, 6, 6, 0]}>
-              {topThemes.map((t, i) => <Cell key={i} fill={THEME_COLOR[t.name] ?? "#6E56CF"} />)}
+      <div className="bg-surface border border-slate-200/60 shadow-soft rounded-2xl p-6">
+        <h2 className="font-display font-semibold text-lg text-ink mb-6">Top themes</h2>
+        <ResponsiveContainer width="100%" height={240}>
+          <BarChart data={topThemes} layout="vertical" margin={{ left: 0, right: 20 }}>
+            <XAxis type="number" tick={{ fontSize: 11, fill: "#64748B" }} axisLine={false} tickLine={false} />
+            <YAxis type="category" dataKey="name" tick={{ fontSize: 12, fill: "#0F172A", fontWeight: 500 }} axisLine={false} tickLine={false} width={160} />
+            <Tooltip 
+              cursor={{ fill: "#F8FAFC" }}
+              contentStyle={{ fontSize: 13, borderRadius: 12, border: "none", boxShadow: "0 10px 40px -10px rgba(0,0,0,0.12)", padding: "8px 12px", fontWeight: 500 }} 
+            />
+            <Bar dataKey="count" radius={[0, 4, 4, 0]} barSize={24}>
+              {topThemes.map((t, i) => <Cell key={i} fill={THEME_COLOR[t.name] ?? "#4F46E5"} />)}
             </Bar>
           </BarChart>
         </ResponsiveContainer>
