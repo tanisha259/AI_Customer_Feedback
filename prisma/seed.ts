@@ -90,7 +90,7 @@ async function main() {
 
   const [admin, analyst, viewer] = await Promise.all([
     prisma.user.create({
-      data: { name: "Priya Shah", email: "admin@northwind.demo", passwordHash, role: Role.ADMIN, workspaceId: workspace.id },
+      data: { name: "Tanisha Pandit", email: "admin@northwind.demo", passwordHash, role: Role.ADMIN, workspaceId: workspace.id },
     }),
     prisma.user.create({
       data: { name: "Sam Ortiz", email: "analyst@northwind.demo", passwordHash, role: Role.ANALYST, workspaceId: workspace.id },
