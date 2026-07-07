@@ -9,7 +9,7 @@ const config: Config = {
     extend: {
       colors: {
         ink: "#0F172A", 
-        paper: "#F8FAFC", 
+        paper: "#F1F5F9", 
         violet: "#4F46E5", 
         violetDeep: "#3730A3", 
         amber: "#F59E0B",

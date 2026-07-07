@@ -22,8 +22,15 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
   const name = session?.user?.name ?? "…";
 
   return (
-    <div className="flex min-h-screen bg-paper font-sans">
-      <aside className="w-[260px] bg-ink flex flex-col shrink-0 relative overflow-hidden shadow-float">
+    <div className="flex min-h-screen bg-paper font-sans relative">
+      {/* Decorative ambient background for the dashboard area */}
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden ml-[260px]">
+        <div className="absolute -top-[20%] -right-[10%] w-[800px] h-[800px] bg-violet/10 rounded-full blur-[120px]" />
+        <div className="absolute top-[40%] -left-[10%] w-[600px] h-[600px] bg-cyan-400/10 rounded-full blur-[100px]" />
+        <div className="absolute -bottom-[20%] right-[20%] w-[700px] h-[700px] bg-emerald-400/5 rounded-full blur-[120px]" />
+      </div>
+      
+      <aside className="w-[260px] bg-ink flex flex-col shrink-0 relative overflow-hidden shadow-[4px_0_24px_rgba(0,0,0,0.1)] z-30">
         {/* Subtle glow effect in the top left */}
         <div className="absolute -top-24 -left-24 w-64 h-64 bg-violet/20 rounded-full blur-[80px] pointer-events-none" />
         
@@ -69,7 +76,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         </div>
       </aside>
 
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col min-w-0 relative z-10">
         <div className="flex items-center justify-end px-8 py-4 border-b border-slate-200/60 bg-surface/50 backdrop-blur-md sticky top-0 z-20">
           <div className="flex items-center gap-3 bg-surface border border-slate-200/60 shadow-soft rounded-xl px-3 py-1.5 transition-shadow hover:shadow-float">
             <span className="w-7 h-7 rounded-full bg-gradient-to-br from-violet to-violetDeep text-white text-xs font-bold flex items-center justify-center shadow-soft">
