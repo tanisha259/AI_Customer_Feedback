@@ -34,13 +34,16 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         {/* Subtle glow effect in the top left */}
         <div className="absolute -top-24 -left-24 w-64 h-64 bg-violet/20 rounded-full blur-[80px] pointer-events-none" />
         
-        <div className="flex items-center gap-3 px-6 pt-8 pb-6 relative z-10 border-b border-white/5">
-          <div className="w-10 h-10 bg-gradient-to-br from-violet to-violetDeep rounded-xl flex items-center justify-center shadow-soft">
-            <span className="font-display font-bold text-white text-xl">L</span>
+        <div className="flex items-center gap-3 px-6 pt-8 pb-6 relative z-10 border-b border-white/5 group cursor-pointer">
+          <div className="relative flex items-center justify-center w-11 h-11">
+            <div className="absolute inset-0 bg-gradient-to-tr from-violet via-fuchsia-500 to-cyan-400 rounded-xl blur-md opacity-60 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+            <div className="relative w-11 h-11 bg-gradient-to-br from-violet to-violetDeep rounded-xl flex items-center justify-center shadow-lg border border-white/10 group-hover:scale-105 transition-transform duration-300">
+              <span className="font-display font-bold text-transparent bg-clip-text bg-gradient-to-br from-white to-violet-200 text-2xl">L</span>
+            </div>
           </div>
-          <div>
-            <div className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-300 font-display font-bold text-2xl tracking-wide leading-none">LOOP</div>
-            <div className="text-slate-400 text-[9px] font-semibold tracking-[0.2em] mt-1 uppercase">Intelligence</div>
+          <div className="flex flex-col justify-center">
+            <div className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-400 font-display font-bold text-2xl tracking-wide leading-none group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] transition-all duration-300">LOOP</div>
+            <div className="text-cyan-400/80 text-[10px] font-semibold tracking-[0.25em] mt-1 uppercase group-hover:text-cyan-300 transition-colors duration-300">Intelligence</div>
           </div>
         </div>
 
