@@ -48,7 +48,7 @@ model User {
   workspaceId   String?
   workspace     Workspace? @relation(fields: [workspaceId], references: [id])
 
-  reports       Report[]
+  reports      Report[]
   accounts      Account[]
   sessions      Session[]
 
