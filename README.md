@@ -152,3 +152,7 @@ query.
 - Member invitation UI (Admin inviting teammates by email) is not wired up;
   the API/schema support multiple users per workspace, but there's no invite
   flow yet — currently new users create their own new workspace via signup.
+
+## Testing
+
+Run unit tests and integration tests by executing the test scripts in the root directory.
