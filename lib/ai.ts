@@ -126,3 +126,5 @@ Write four short sections with these exact headers on their own line: "Summary",
   const result = await model.generateContent(prompt);
   return result.response.text();
 }
+
+// Note: ai integration functions for text generation
