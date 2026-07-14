@@ -156,3 +156,5 @@ query.
 ## Testing
 
 Run unit tests and integration tests by executing the test scripts in the root directory.
+
+<!-- End of README documentation -->
