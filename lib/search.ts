@@ -21,3 +21,5 @@ export function retrieveTopK<T>(queryVector: number[], candidates: Candidate<T>[
     .slice(0, k)
     .map((c) => c.payload);
 }
+
+// Note: search utilities and indexing logic
