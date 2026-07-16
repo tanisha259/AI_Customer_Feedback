@@ -7,6 +7,7 @@ export default withAuth({
   pages: { signIn: "/login" },
 });
 
+// Define paths where the middleware should run
 export const config = {
   matcher: [
     "/dashboard/:path*",
