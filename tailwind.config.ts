@@ -8,6 +8,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Custom palette for the application
         ink: "#0F172A", 
         paper: "#F1F5F9", 
         violet: "#4F46E5", 
