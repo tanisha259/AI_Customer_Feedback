@@ -78,7 +78,7 @@ export const authOptions: NextAuthOptions = {
         const dbUser = await db.user.findUnique({ where: { id: token.id as string } });
         if (dbUser) {
           token.role = dbUser.role;
-          token.workspaceId = dbUser.workspaceId;
+          token.workspaceId = dbUser.workspaceId ?? "";
         }
       }
 
