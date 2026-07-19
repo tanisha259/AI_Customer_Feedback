@@ -43,10 +43,17 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-paper px-4">
-      <div className="w-full max-w-sm bg-white border border-[#E7E2D6] rounded-2xl p-8 shadow-sm">
-        <div className="font-display text-2xl font-semibold text-ink mb-1">Create your workspace</div>
-        <div className="text-sm text-[#6B6B80] mb-6">You'll be the workspace's first Admin.</div>
+    <div className="min-h-screen flex items-center justify-center bg-paper relative overflow-hidden px-4">
+      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-accent-sage/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="w-full max-w-sm bg-surface rounded-[24px] p-10 shadow-float border border-slate-200/60 relative z-10 animate-fade-in">
+        <div className="flex flex-col items-center mb-6">
+          <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-800 rounded-xl flex items-center justify-center shadow-soft mb-4">
+            <span className="font-display font-bold text-white text-xl">L</span>
+          </div>
+          <div className="font-display text-2xl font-bold text-ink mb-1">Create your workspace</div>
+          <div className="text-sm text-slate-muted">You'll be the workspace's first Admin.</div>
+        </div>
 
         <form onSubmit={onSubmit} className="flex flex-col gap-3">
           {(["name", "workspaceName", "email", "password"] as const).map((field) => (
@@ -59,20 +66,20 @@ export default function SignupPage() {
                 required
                 value={form[field]}
                 onChange={(e) => setForm((f) => ({ ...f, [field]: e.target.value }))}
-                className="w-full mt-1 px-3 py-2 rounded-lg border border-[#E7E2D6] text-sm"
+                className="w-full mt-1.5 px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-4 focus:ring-primary-500/10 focus:border-primary-500/60 transition-all duration-200"
               />
             </div>
           ))}
-          {error && <div className="text-xs text-coral">{error}</div>}
+          {error && <div className="text-xs font-medium text-accent-coral bg-accent-coral/10 p-3 rounded-lg text-center">{error}</div>}
           <button
             type="submit" disabled={busy}
-            className="mt-2 w-full py-2.5 rounded-lg bg-violet text-white text-sm font-semibold disabled:opacity-60"
+            className="mt-2 w-full py-3 rounded-xl bg-gradient-to-r from-primary-600 to-primary-800 text-white text-sm font-semibold shadow-soft hover:shadow-glow hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-60 disabled:hover:translate-y-0"
           >
             {busy ? "Creating…" : "Create workspace"}
           </button>
         </form>
 
-        <div className="mt-4 pt-4 border-t border-[#E7E2D6]">
+        <div className="mt-6 pt-6 border-t border-slate-100">
           <button
             type="button"
             onClick={() => {
@@ -80,7 +87,7 @@ export default function SignupPage() {
               signIn("google", { callbackUrl: "/dashboard" });
             }}
             disabled={busy}
-            className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg border border-[#E7E2D6] bg-white text-ink text-sm font-semibold hover:bg-gray-50 transition-colors disabled:opacity-60"
+            className="w-full flex items-center justify-center gap-2.5 py-3 rounded-xl border border-slate-200 bg-surface text-ink text-sm font-semibold hover:bg-slate-50 transition-colors disabled:opacity-60"
           >
             <svg viewBox="0 0 24 24" className="w-5 h-5">
               <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
@@ -92,8 +99,8 @@ export default function SignupPage() {
           </button>
         </div>
 
-        <div className="mt-4 text-xs text-center">
-          <Link href="/login" className="text-violetDeep font-semibold">← Back to log in</Link>
+        <div className="mt-6 text-sm text-center">
+          <Link href="/login" className="text-primary-600 font-semibold hover:text-primary-800 transition-colors">← Back to log in</Link>
         </div>
       </div>
     </div>

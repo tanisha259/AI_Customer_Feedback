@@ -29,38 +29,38 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-paper relative overflow-hidden px-4 font-sans">
       {/* Decorative background blur */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sage/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-sage/10 rounded-full blur-3xl pointer-events-none" />
       
-      <div className="w-full max-w-[400px] bg-surface rounded-[24px] p-10 shadow-float border border-slate-200/60 relative z-10">
+      <div className="w-full max-w-[400px] bg-surface rounded-[24px] p-10 shadow-float border border-slate-200/60 relative z-10 animate-fade-in">
         <div className="flex flex-col items-center mb-8">
-          <div className="w-12 h-12 bg-gradient-to-br from-violet to-violetDeep rounded-xl flex items-center justify-center shadow-soft mb-4">
+          <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-800 rounded-xl flex items-center justify-center shadow-soft mb-4">
             <span className="font-display font-bold text-white text-xl">L</span>
           </div>
           <h1 className="font-display text-2xl font-bold text-ink text-center">Welcome back</h1>
-          <p className="text-sm text-slate-soft mt-2 text-center">Log in to your workspace</p>
+          <p className="text-sm text-slate-muted mt-2 text-center">Log in to your workspace</p>
         </div>
 
         <form onSubmit={onSubmit} className="flex flex-col gap-4">
           <div>
-            <label className="text-xs font-semibold text-slate-soft uppercase tracking-wider">Email</label>
+            <label className="text-xs font-semibold text-slate-muted uppercase tracking-wider">Email</label>
             <input
               type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
-              className="w-full mt-1.5 px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-4 focus:ring-violet/10 focus:border-violet transition-all duration-200"
+              className="w-full mt-1.5 px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-4 focus:ring-primary-500/10 focus:border-primary-500/60 transition-all duration-200"
             />
           </div>
           <div>
-            <label className="text-xs font-semibold text-slate-soft uppercase tracking-wider">Password</label>
+            <label className="text-xs font-semibold text-slate-muted uppercase tracking-wider">Password</label>
             <input
               type="password" required value={password} onChange={(e) => setPassword(e.target.value)}
-              className="w-full mt-1.5 px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-4 focus:ring-violet/10 focus:border-violet transition-all duration-200"
+              className="w-full mt-1.5 px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-4 focus:ring-primary-500/10 focus:border-primary-500/60 transition-all duration-200"
             />
           </div>
-          {error && <div className="text-xs font-medium text-coral bg-coral/10 p-3 rounded-lg text-center">{error}</div>}
+          {error && <div className="text-xs font-medium text-accent-coral bg-accent-coral/10 p-3 rounded-lg text-center">{error}</div>}
           
           <button
             type="submit" disabled={busy}
-            className="mt-4 w-full py-3 rounded-xl bg-gradient-to-r from-violet to-violetDeep text-white text-sm font-semibold shadow-soft hover:shadow-float hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-60 disabled:hover:translate-y-0"
+            className="mt-4 w-full py-3 rounded-xl bg-gradient-to-r from-primary-600 to-primary-800 text-white text-sm font-semibold shadow-soft hover:shadow-glow hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-60 disabled:hover:translate-y-0"
           >
             {busy ? "Logging in…" : "Log in"}
           </button>
@@ -91,14 +91,14 @@ export default function LoginPage() {
           </button>
         </div>
 
-        <div className="mt-8 text-xs text-slate-soft leading-relaxed bg-slate-50 p-4 rounded-xl text-center">
+        <div className="mt-8 text-xs text-slate-muted leading-relaxed bg-slate-50 p-4 rounded-xl text-center">
           <p className="font-semibold text-ink mb-1">Demo credentials</p>
           admin@northwind.demo<br />
           Password: <span className="font-mono bg-white px-1 py-0.5 rounded border border-slate-200">Password123!</span>
         </div>
         
         <div className="mt-6 text-sm text-center">
-          <Link href="/signup" className="text-violet font-semibold hover:text-violetDeep transition-colors">Create a new workspace instead →</Link>
+          <Link href="/signup" className="text-primary-600 font-semibold hover:text-primary-800 transition-colors">Create a new workspace instead →</Link>
         </div>
       </div>
     </div>
