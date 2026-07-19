@@ -32,7 +32,7 @@ export default function ReportsPage() {
   }
 
   return (
-    <div className="p-8 max-w-[1000px] mx-auto animate-fade-in relative">
+    <div className="p-4 md:p-8 max-w-[1000px] mx-auto animate-fade-in relative">
       <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-primary-100/10 rounded-full blur-[100px] pointer-events-none -z-10" />
       
       <div className="mb-8">
@@ -43,7 +43,7 @@ export default function ReportsPage() {
       </div>
 
       {canGenerate && (
-        <div className="glass-panel rounded-3xl p-6 mb-10 flex items-center gap-6 shadow-soft animate-slide-up relative overflow-hidden group">
+        <div className="glass-panel rounded-3xl p-6 mb-10 flex flex-col md:flex-row items-start md:items-center gap-6 shadow-soft animate-slide-up relative overflow-hidden group">
           <div className="absolute inset-0 bg-gradient-to-r from-primary-500/5 to-transparent pointer-events-none" />
           <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center text-white shadow-glow flex-shrink-0 group-hover:scale-105 transition-transform">
             <Sparkles size={20} />
@@ -52,11 +52,11 @@ export default function ReportsPage() {
             <div className="font-bold text-[16px] text-ink">Generate a Voice-of-Customer report</div>
             <div className="text-[13px] text-slate-500 mt-1">Pre-computed stats + a Claude-written narrative, grounded in real feedback.</div>
           </div>
-          <select value={period} onChange={(e) => setPeriod(e.target.value)} className="px-4 py-2.5 rounded-xl border border-slate-200/80 bg-white/50 text-[13px] font-medium text-slate-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 cursor-pointer">
+          <select value={period} onChange={(e) => setPeriod(e.target.value)} className="w-full md:w-auto px-4 py-2.5 rounded-xl border border-slate-200/80 bg-white/50 text-[13px] font-medium text-slate-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 cursor-pointer">
             <option value="7">Last 7 days</option><option value="14">Last 14 days</option><option value="30">Last 30 days</option>
           </select>
           <button onClick={generate} disabled={busy}
-            className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-primary-600 to-primary-500 text-white font-semibold text-[13px] shadow-soft hover:shadow-glow hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:hover:shadow-none disabled:hover:translate-y-0 relative z-10">
+            className="w-full md:w-auto flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-primary-600 to-primary-500 text-white font-semibold text-[13px] shadow-soft hover:shadow-glow hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:hover:shadow-none disabled:hover:translate-y-0 relative z-10">
             {busy ? <Loader2 size={16} className="spin" /> : <Sparkles size={16} />} {busy ? "Generating…" : "Generate Report"}
           </button>
         </div>

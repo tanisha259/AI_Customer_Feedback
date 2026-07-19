@@ -48,7 +48,7 @@ export default function AskLoopPage() {
         <div className="absolute bottom-[10%] right-[10%] w-[500px] h-[500px] bg-accent-cyan/10 rounded-full blur-[100px]" />
       </div>
 
-      <div className="px-8 pt-8 pb-4 flex items-center justify-between z-10 sticky top-0 bg-paper/80 backdrop-blur-xl border-b border-white/50">
+      <div className="px-4 md:px-8 pt-8 pb-4 flex items-center justify-between z-10 sticky top-0 bg-paper/80 backdrop-blur-xl border-b border-white/50">
         <div>
           <div className="font-display text-3xl font-bold text-ink flex items-center gap-2">
             <Sparkles className="text-primary-500" size={24} /> Ask LOOP
@@ -65,7 +65,7 @@ export default function AskLoopPage() {
         )}
       </div>
 
-      <div className="flex-1 overflow-y-auto px-8 pb-32 z-10 relative">
+      <div className="flex-1 overflow-y-auto px-4 md:px-8 pb-32 z-10 relative">
         <div className="max-w-4xl mx-auto w-full">
           {history.length === 0 && (
             <div className="flex flex-col items-center justify-center mt-32 animate-slide-up">
@@ -140,7 +140,7 @@ export default function AskLoopPage() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 p-8 pt-12 bg-gradient-to-t from-paper via-paper/90 to-transparent z-20">
+      <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8 pt-12 bg-gradient-to-t from-paper via-paper/90 to-transparent z-20">
         <div className="max-w-4xl mx-auto relative group">
           <input
             value={question} onChange={(e) => setQuestion(e.target.value)}

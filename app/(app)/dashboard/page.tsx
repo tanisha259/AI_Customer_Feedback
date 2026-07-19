@@ -92,7 +92,7 @@ export default function DashboardPage() {
     .map(([name, count]) => ({ name, count }));
 
   if (loading) return (
-    <div className="p-8 max-w-[1400px] mx-auto flex flex-col gap-8 font-sans">
+    <div className="p-4 md:p-8 max-w-[1400px] mx-auto flex flex-col gap-8 font-sans">
       <div>
         <div className="h-9 w-56 bg-slate-200/50 rounded animate-pulse mb-3" />
         <div className="h-4 w-80 bg-slate-200/50 rounded animate-pulse" />
@@ -104,7 +104,7 @@ export default function DashboardPage() {
   );
 
   return (
-    <div className="p-8 max-w-[1400px] mx-auto flex flex-col gap-8 font-sans relative">
+    <div className="p-4 md:p-8 max-w-[1400px] mx-auto flex flex-col gap-8 font-sans relative overflow-x-hidden">
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-primary-500/5 rounded-full blur-[120px] pointer-events-none -z-10" />
       
       <div className="animate-fade-in">

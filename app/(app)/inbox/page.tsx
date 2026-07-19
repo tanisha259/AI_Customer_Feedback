@@ -37,8 +37,8 @@ function AddFeedbackModal({ onClose, onAdded }: { onClose: () => void; onAdded: 
   }
 
   return (
-    <div className="fixed inset-0 bg-ink/30 backdrop-blur-sm flex items-center justify-center z-50 animate-fade-in">
-      <div className="bg-white/95 backdrop-blur-xl border border-white rounded-3xl p-7 w-[500px] shadow-2xl animate-slide-up relative overflow-hidden">
+    <div className="fixed inset-0 bg-ink/30 backdrop-blur-sm flex items-center justify-center z-50 animate-fade-in p-4">
+      <div className="bg-white/95 backdrop-blur-xl border border-white rounded-3xl p-7 w-full sm:w-[500px] max-w-full shadow-2xl animate-slide-up relative overflow-hidden">
         <div className="absolute top-0 right-0 w-40 h-40 bg-primary-100 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2 pointer-events-none" />
         
         <div className="flex justify-between items-center mb-1 relative z-10">
@@ -143,7 +143,7 @@ export default function InboxPage() {
   const selectCls = "px-3 py-2 rounded-full border border-slate-200/60 bg-surface text-[13px] font-medium text-slate-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 cursor-pointer hover:bg-slate-50 transition-colors";
 
   return (
-    <div className="p-8 max-w-[1400px] mx-auto animate-fade-in relative">
+    <div className="p-4 md:p-8 max-w-[1400px] mx-auto animate-fade-in relative">
       <div className="absolute top-0 right-0 w-[600px] h-[300px] bg-accent-cyan/5 rounded-full blur-[100px] pointer-events-none -z-10" />
       
       <div className="flex gap-3 mb-6 flex-wrap items-center">
@@ -177,14 +177,14 @@ export default function InboxPage() {
         )}
       </div>
 
-      <div className="glass-panel rounded-2xl overflow-hidden shadow-soft border border-white/60 relative z-10 animate-slide-up">
-        <div className="grid grid-cols-[1.5fr_140px_110px_200px_140px_120px] px-6 py-4 text-[11px] font-bold text-slate-muted uppercase tracking-wider border-b border-slate-200/50 bg-white/40 backdrop-blur-sm">
+      <div className="glass-panel rounded-2xl overflow-x-auto shadow-soft border border-white/60 relative z-10 animate-slide-up">
+        <div className="grid grid-cols-[1.5fr_140px_110px_200px_140px_120px] min-w-[900px] px-6 py-4 text-[11px] font-bold text-slate-muted uppercase tracking-wider border-b border-slate-200/50 bg-white/40 backdrop-blur-sm">
           <div>Feedback</div><div>Channel</div><div>Sentiment</div><div>Themes</div><div>Account</div><div>Status</div>
         </div>
         {items.length === 0 && <div className="py-16 text-center text-[13px] text-slate-muted font-medium bg-white/30">No feedback matches these filters.</div>}
         <div className="divide-y divide-slate-100/50 bg-white/30">
           {items.map((it) => (
-            <div key={it.id} className="grid grid-cols-[1.5fr_140px_110px_200px_140px_120px] px-6 py-4 items-center text-[13px] hover:bg-primary-50/30 transition-colors group">
+            <div key={it.id} className="grid grid-cols-[1.5fr_140px_110px_200px_140px_120px] min-w-[900px] px-6 py-4 items-center text-[13px] hover:bg-primary-50/30 transition-colors group">
               <div className="pr-4 text-ink font-medium leading-relaxed">{it.content}</div>
               <div className="text-slate-500">{it.channel}</div>
               <div className="flex items-center gap-2"><SentimentDot s={it.sentiment} /> {it.sentiment ?? "—"}</div>

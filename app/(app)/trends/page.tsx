@@ -30,7 +30,7 @@ export default function TrendsPage() {
   }, [selected]);
 
   return (
-    <div className="p-8 max-w-[1200px] mx-auto animate-fade-in relative">
+    <div className="p-4 md:p-8 max-w-[1200px] mx-auto animate-fade-in relative">
       <div className="absolute top-20 left-0 w-[500px] h-[300px] bg-accent-amber/5 rounded-full blur-[100px] pointer-events-none -z-10" />
 
       <div className="mb-8 flex items-center justify-between">
@@ -43,15 +43,15 @@ export default function TrendsPage() {
         </div>
       </div>
 
-      <div className="glass-panel rounded-3xl overflow-hidden mb-8 shadow-soft animate-slide-up relative">
+      <div className="glass-panel rounded-3xl overflow-x-auto mb-8 shadow-soft animate-slide-up relative">
         <div className="absolute top-0 right-1/4 w-64 h-32 bg-primary-100/30 rounded-full blur-3xl pointer-events-none" />
-        <div className="grid grid-cols-[1.6fr_120px_120px_140px_100px] px-8 py-5 text-[11px] font-bold text-slate-muted uppercase tracking-wider border-b border-slate-200/50 bg-white/40 backdrop-blur-sm relative z-10">
+        <div className="grid grid-cols-[1.6fr_120px_120px_140px_100px] min-w-[700px] px-8 py-5 text-[11px] font-bold text-slate-muted uppercase tracking-wider border-b border-slate-200/50 bg-white/40 backdrop-blur-sm relative z-10">
           <div>Theme</div><div>Total Volume</div><div>Last 14d</div><div>vs Prior 14d</div><div>Status</div>
         </div>
         <div className="divide-y divide-slate-100/50 bg-white/30 relative z-10">
           {rows.map((r, idx) => (
             <button key={r.id} onClick={() => setSelected(r.name)}
-              className="w-full text-left grid grid-cols-[1.6fr_120px_120px_140px_100px] px-8 py-4 items-center text-[13px] hover:bg-primary-50/50 transition-colors group">
+              className="w-full text-left grid grid-cols-[1.6fr_120px_120px_140px_100px] min-w-[700px] px-8 py-4 items-center text-[13px] hover:bg-primary-50/50 transition-colors group">
               <div className="flex items-center gap-3 font-semibold text-ink group-hover:text-primary-700 transition-colors">
                 <span className="w-2.5 h-2.5 rounded-full shadow-sm" style={{ background: THEME_COLOR[r.name] ?? "#6366F1" }} />
                 <span className="text-[14px]">{r.name}</span>
