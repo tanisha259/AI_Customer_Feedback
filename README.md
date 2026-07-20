@@ -27,7 +27,7 @@ Modern businesses struggle to extract actionable insights from the overwhelming 
 
 ## 🌐 Live Demo
 
-🔗 **[View Live Application Here](YOUR_VERCEL_URL_HERE)**
+🔗 **[View Live Application Here](http://ai-customer-feedback-three.vercel.app/)**
 
 ---
 
@@ -35,8 +35,8 @@ Modern businesses struggle to extract actionable insights from the overwhelming 
 
 > *(Placeholder for a GIF showcasing the core application workflow)*
 >
-> ![Demo GIF](<img width="720" height="347" alt="loop-demo" src="https://github.com/user-attachments/assets/aff513e8-9868-4bf0-a008-b9a56dab11df" />
-)
+> ![Demo GIF](https://drive.google.com/file/d/1glowH2rnTVyMrOSBgVPEwF1JkUr7IZqg/view?usp=drivesdk) 
+
 
 ---
 
