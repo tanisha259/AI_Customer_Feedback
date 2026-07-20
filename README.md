@@ -31,14 +31,6 @@ Modern businesses struggle to extract actionable insights from the overwhelming 
 
 ---
 
-## 🎥 Demo GIF
-
-> *(Placeholder for a GIF showcasing the core application workflow)*
->
-> ![Demo](https://drive.google.com/file/d/1glowH2rnTVyMrOSBgVPEwF1JkUr7IZqg/view?usp=drivesdk) 
-
-
----
 
 ## ✨ Key Features
 
