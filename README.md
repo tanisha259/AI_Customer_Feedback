@@ -210,21 +210,6 @@ The application exposes several RESTful API endpoints for integration:
 
 ---
 
-## 📸 Screenshots
-
-| Login / Auth | Dashboard Overview |
-| :---: | :---: |
-| ![Login Placeholder](https://via.placeholder.com/400x250?text=Login+Screen) | ![Dashboard Placeholder](https://via.placeholder.com/400x250?text=Analytics+Dashboard) |
-
-| Feedback Inbox | Theme Trends |
-| :---: | :---: |
-| ![Inbox Placeholder](https://via.placeholder.com/400x250?text=Feedback+Inbox) | ![Trends Placeholder](https://via.placeholder.com/400x250?text=Trends+Analysis) |
-
-| Ask LOOP (AI Chat) | Voice of Customer Reports |
-| :---: | :---: |
-| ![Ask LOOP Placeholder](https://via.placeholder.com/400x250?text=Ask+LOOP+Interface) | ![Reports Placeholder](https://via.placeholder.com/400x250?text=VoC+Report) |
-
----
 
 ## 🔮 Future Enhancements
 
@@ -258,8 +243,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 **Tanisha**
 
 - GitHub: [@tanisha259](https://github.com/tanisha259)
-- LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
-- Portfolio: [yourportfolio.com](https://yourportfolio.com)
 
 ---
 *If you like this project, please give it a ⭐️!*
