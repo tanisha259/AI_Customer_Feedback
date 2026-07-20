@@ -35,7 +35,8 @@ Modern businesses struggle to extract actionable insights from the overwhelming 
 
 > *(Placeholder for a GIF showcasing the core application workflow)*
 >
-> ![Demo GIF](https://via.placeholder.com/800x450?text=Application+Demo+GIF)
+> ![Demo GIF](<img width="720" height="347" alt="loop-demo" src="https://github.com/user-attachments/assets/aff513e8-9868-4bf0-a008-b9a56dab11df" />
+)
 
 ---
 
