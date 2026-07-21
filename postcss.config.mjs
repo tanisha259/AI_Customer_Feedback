@@ -6,3 +6,5 @@ export default {
     autoprefixer: {},
   },
 };
+
+// PostCSS config updated
