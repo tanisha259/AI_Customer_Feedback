@@ -1,6 +1,8 @@
 {
   "name": "loop",
   "version": "1.0.0",
+  "description": "AI Customer Feedback Application",
+  "author": "Contributors",
   "private": true,
   "scripts": {
     "dev": "next dev",
