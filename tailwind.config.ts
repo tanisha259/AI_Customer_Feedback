@@ -73,3 +73,4 @@ const config: Config = {
 export default config;
 
 // Tailwind CSS Configuration
+// Extended default theme with custom brand colors and animations
