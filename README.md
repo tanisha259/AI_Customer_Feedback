@@ -21,7 +21,7 @@
 Modern businesses struggle to extract actionable insights from the overwhelming volume of customer feedback they receive across various channels. Manual analysis is time-consuming, prone to human error, and fails to identify emerging trends quickly enough for product teams to act upon.
 
 **The Solution:**
-**Project LOOP** is a cutting-edge AI Customer Feedback Intelligence Platform designed to automate the ingestion, categorization, and analysis of customer feedback. By leveraging Anthropic's Claude AI, LOOP transforms raw feedback into structured data, actionable insights, and comprehensive Voice of Customer (VoC) reports, enabling data-driven decision-making at scale.
+**Project LOOP** is a cutting-edge **AI Customer Feedback Intelligence Platform** designed to automate the ingestion, categorization, and analysis of customer feedback. By leveraging Anthropic's Claude AI, LOOP transforms raw feedback into structured data, actionable insights, and comprehensive Voice of Customer (VoC) reports, enabling data-driven decision-making at scale.
 
 ---
 
