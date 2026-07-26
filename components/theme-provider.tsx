@@ -7,3 +7,4 @@ import { type ThemeProviderProps } from "next-themes";
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
 }
+// Note: The ThemeProvider relies on next-themes for client-side theme switching.
