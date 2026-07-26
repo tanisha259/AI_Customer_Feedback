@@ -8,3 +8,4 @@ export default {
 };
 
 // PostCSS config updated
+// Note: Autoprefixer ensures cross-browser compatibility for modern CSS features.
