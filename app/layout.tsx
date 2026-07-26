@@ -19,3 +19,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+// Note: Root layout initializes global styles and providers.
