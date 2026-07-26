@@ -52,7 +52,7 @@ export default function ReportsPage() {
             <div className="font-bold text-[16px] text-ink">Generate a Voice-of-Customer report</div>
             <div className="text-[13px] text-slate-500 mt-1">Pre-computed stats + a Claude-written narrative, grounded in real feedback.</div>
           </div>
-          <select value={period} onChange={(e) => setPeriod(e.target.value)} className="w-full md:w-auto px-4 py-2.5 rounded-xl border border-slate-200/80 bg-white/50 text-[13px] font-medium text-slate-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 cursor-pointer">
+          <select value={period} onChange={(e) => setPeriod(e.target.value)} className="w-full md:w-auto px-4 py-2.5 rounded-xl border border-slate-200/80 bg-surface/50 text-[13px] font-medium text-slate-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 cursor-pointer">
             <option value="7">Last 7 days</option><option value="14">Last 14 days</option><option value="30">Last 30 days</option>
           </select>
           <button onClick={generate} disabled={busy}

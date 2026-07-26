@@ -94,7 +94,7 @@ export default function LoginPage() {
         <div className="mt-8 text-xs text-slate-muted leading-relaxed bg-slate-50 p-4 rounded-xl text-center">
           <p className="font-semibold text-ink mb-1">Demo credentials</p>
           admin@northwind.demo<br />
-          Password: <span className="font-mono bg-white px-1 py-0.5 rounded border border-slate-200">Password123!</span>
+          Password: <span className="font-mono bg-surface px-1 py-0.5 rounded border border-slate-200">Password123!</span>
         </div>
         
         <div className="mt-6 text-sm text-center">

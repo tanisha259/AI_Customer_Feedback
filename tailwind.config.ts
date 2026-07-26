@@ -5,12 +5,15 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        ink: "#0B0F19", // Deep, rich background/text
-        paper: "#F8FAFC", // Clean, minimal background
-        surface: "#FFFFFF",
+        ink: "var(--color-ink)", // Deep, rich background/text
+        paper: "var(--color-paper)", // Clean, minimal background
+        sidebar: "var(--color-sidebar)", // Sidebar background
+        surface: "var(--color-surface)",
+        'surface-hover': "var(--color-surface-hover)",
         primary: {
           50: '#EEF2FF',
           100: '#E0E7FF',
@@ -24,8 +27,18 @@ const config: Config = {
           900: '#312E81',
         },
         slate: {
-          soft: "#64748B",
-          muted: "#94A3B8",
+          50: "var(--color-surface-hover)",
+          100: "var(--color-border)",
+          200: "var(--color-border)",
+          300: "var(--color-muted)",
+          400: "var(--color-muted-foreground)",
+          500: "var(--color-muted-foreground)",
+          600: "var(--color-muted-foreground)",
+          700: "var(--color-ink)",
+          800: "var(--color-ink)",
+          900: "var(--color-ink)",
+          soft: "var(--color-muted-foreground)",
+          muted: "var(--color-muted-foreground)",
         },
         accent: {
           amber: "#F59E0B",

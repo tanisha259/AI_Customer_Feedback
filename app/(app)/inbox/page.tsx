@@ -38,7 +38,7 @@ function AddFeedbackModal({ onClose, onAdded }: { onClose: () => void; onAdded: 
 
   return (
     <div className="fixed inset-0 bg-ink/30 backdrop-blur-sm flex items-center justify-center z-50 animate-fade-in p-4">
-      <div className="bg-white/95 backdrop-blur-xl border border-white rounded-3xl p-7 w-full sm:w-[500px] max-w-full shadow-2xl animate-slide-up relative overflow-hidden">
+      <div className="bg-surface/95 backdrop-blur-xl border border-surface rounded-3xl p-7 w-full sm:w-[500px] max-w-full shadow-2xl animate-slide-up relative overflow-hidden">
         <div className="absolute top-0 right-0 w-40 h-40 bg-primary-100 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2 pointer-events-none" />
         
         <div className="flex justify-between items-center mb-1 relative z-10">
@@ -52,21 +52,21 @@ function AddFeedbackModal({ onClose, onAdded }: { onClose: () => void; onAdded: 
             <label className="text-xs font-bold text-ink uppercase tracking-wider">Feedback content</label>
             <textarea value={content} onChange={(e) => setContent(e.target.value)} rows={4}
               placeholder="Paste or type the customer's feedback…"
-              className="w-full mt-2 px-4 py-3 rounded-xl border border-slate-200/80 bg-white/50 text-[13px] resize-y focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500/50 transition-all shadow-inner" />
+              className="w-full mt-2 px-4 py-3 rounded-xl border border-slate-200/80 bg-surface/50 text-[13px] resize-y focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500/50 transition-all shadow-inner" />
           </div>
 
           <div className="flex gap-4">
             <div className="flex-1">
               <label className="text-xs font-bold text-ink uppercase tracking-wider">Channel</label>
               <select value={channel} onChange={(e) => setChannel(e.target.value)}
-                className="w-full mt-2 px-3 py-2.5 rounded-xl border border-slate-200/80 bg-white/50 text-[13px] focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500/50 transition-all shadow-sm">
+                className="w-full mt-2 px-3 py-2.5 rounded-xl border border-slate-200/80 bg-surface/50 text-[13px] focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500/50 transition-all shadow-sm">
                 {CHANNELS.map((c) => <option key={c}>{c}</option>)}
               </select>
             </div>
             <div className="flex-1">
               <label className="text-xs font-bold text-ink uppercase tracking-wider">Customer / account</label>
               <input value={label} onChange={(e) => setLabel(e.target.value)} placeholder="Optional"
-                className="w-full mt-2 px-4 py-2.5 rounded-xl border border-slate-200/80 bg-white/50 text-[13px] focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500/50 transition-all shadow-inner" />
+                className="w-full mt-2 px-4 py-2.5 rounded-xl border border-slate-200/80 bg-surface/50 text-[13px] focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500/50 transition-all shadow-inner" />
             </div>
           </div>
 
@@ -150,7 +150,7 @@ export default function InboxPage() {
         <div className="relative flex-1 min-w-[240px]">
           <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
           <input value={search} onChange={(e) => { setSearch(e.target.value); setPage(1); }} placeholder="Search feedback content or customer..."
-            className="w-full pl-10 pr-4 py-2 rounded-full border border-slate-200/60 bg-surface shadow-sm text-[13px] focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500/40 transition-all" />
+            className="w-full pl-10 pr-4 py-2 rounded-full border border-slate-200/60 dark:border-slate-700 bg-surface dark:bg-slate-900 shadow-sm text-[13px] text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500/40 transition-all" />
         </div>
         <select className={selectCls} value={channelF} onChange={(e) => { setChannelF(e.target.value); setPage(1); }}>
           <option value="">All channels</option>{CHANNELS.map((c) => <option key={c}>{c}</option>)}
@@ -164,10 +164,10 @@ export default function InboxPage() {
 
         {canEdit && (
           <div className="flex gap-2 ml-auto">
-            <button onClick={simulateCsv} disabled={importing} className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-slate-200/60 bg-surface hover:bg-slate-50 text-[13px] font-semibold text-slate-700 shadow-sm transition-colors">
+            <button onClick={simulateCsv} disabled={importing} className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-slate-200/60 dark:border-slate-700 bg-surface dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-[13px] font-semibold text-slate-700 dark:text-slate-300 shadow-sm transition-colors">
               {importing ? <Loader2 size={14} className="spin" /> : <Upload size={14} />} Import CSV
             </button>
-            <button onClick={simulateChannel} disabled={importing} className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-slate-200/60 bg-surface hover:bg-slate-50 text-[13px] font-semibold text-slate-700 shadow-sm transition-colors">
+            <button onClick={simulateChannel} disabled={importing} className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-slate-200/60 dark:border-slate-700 bg-surface dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-[13px] font-semibold text-slate-700 dark:text-slate-300 shadow-sm transition-colors">
               {importing ? <Loader2 size={14} className="spin" /> : <Radio size={14} />} Pull channel
             </button>
             <button onClick={() => setShowAdd(true)} className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 text-white text-[13px] font-semibold shadow-soft hover:shadow-glow hover:-translate-y-0.5 transition-all">
@@ -177,26 +177,26 @@ export default function InboxPage() {
         )}
       </div>
 
-      <div className="glass-panel rounded-2xl overflow-x-auto shadow-soft border border-white/60 relative z-10 animate-slide-up">
-        <div className="grid grid-cols-[1.5fr_140px_110px_200px_140px_120px] min-w-[900px] px-6 py-4 text-[11px] font-bold text-slate-muted uppercase tracking-wider border-b border-slate-200/50 bg-white/40 backdrop-blur-sm">
+      <div className="glass-panel rounded-2xl overflow-x-auto shadow-soft border border-white/60 dark:border-slate-800 relative z-10 animate-slide-up">
+        <div className="grid grid-cols-[1.5fr_140px_110px_200px_140px_120px] min-w-[900px] px-6 py-4 text-[11px] font-extrabold text-slate-800 dark:text-slate-200 uppercase tracking-wider border-b border-slate-200/50 dark:border-slate-700 bg-surface/40 dark:bg-slate-900 backdrop-blur-sm">
           <div>Feedback</div><div>Channel</div><div>Sentiment</div><div>Themes</div><div>Account</div><div>Status</div>
         </div>
-        {items.length === 0 && <div className="py-16 text-center text-[13px] text-slate-muted font-medium bg-white/30">No feedback matches these filters.</div>}
-        <div className="divide-y divide-slate-100/50 bg-white/30">
+        {items.length === 0 && <div className="py-16 text-center text-[13px] text-slate-muted font-medium bg-surface/30 dark:bg-slate-900/30">No feedback matches these filters.</div>}
+        <div className="divide-y divide-slate-100/50 dark:divide-slate-700 bg-surface/30 dark:bg-slate-900">
           {items.map((it) => (
-            <div key={it.id} className="grid grid-cols-[1.5fr_140px_110px_200px_140px_120px] min-w-[900px] px-6 py-4 items-center text-[13px] hover:bg-primary-50/30 transition-colors group">
-              <div className="pr-4 text-ink font-medium leading-relaxed">{it.content}</div>
-              <div className="text-slate-500">{it.channel}</div>
+            <div key={it.id} className="grid grid-cols-[1.5fr_140px_110px_200px_140px_120px] min-w-[900px] px-6 py-4 items-center text-[13px] hover:bg-primary-50/30 dark:hover:bg-slate-800 transition-colors group">
+              <div className="pr-4 text-ink dark:text-slate-50 font-medium leading-relaxed">{it.content}</div>
+              <div className="text-slate-500 dark:text-slate-300">{it.channel}</div>
               <div className="flex items-center gap-2"><SentimentDot s={it.sentiment} /> {it.sentiment ?? "—"}</div>
               <div className="flex flex-wrap gap-1.5">
                 {it.themes.slice(0, 2).map((ft) => (
-                  <span key={ft.theme.name} className="bg-primary-50 border border-primary-100 text-primary-700 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">{ft.theme.name}</span>
+                  <span key={ft.theme.name} className="bg-primary-50 dark:bg-primary-900/30 border border-primary-100 dark:border-primary-800 text-primary-700 dark:text-primary-300 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">{ft.theme.name}</span>
                 ))}
               </div>
-              <div className="text-slate-500 font-medium">{it.customerLabel ?? "—"}</div>
+              <div className="text-slate-500 dark:text-slate-300 font-medium">{it.customerLabel ?? "—"}</div>
               <div>
                 {canEdit ? (
-                  <select value={it.status} onChange={(e) => updateStatus(it.id, e.target.value)} className="text-[11px] font-bold uppercase tracking-wider px-2 py-1.5 rounded-lg border border-slate-200 bg-white focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500/40 outline-none cursor-pointer hover:border-slate-300 transition-colors">
+                  <select value={it.status} onChange={(e) => updateStatus(it.id, e.target.value)} className="text-[11px] font-bold uppercase tracking-wider px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-surface dark:bg-slate-800 text-slate-800 dark:text-slate-200 focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500/40 outline-none cursor-pointer hover:border-slate-300 transition-colors">
                     <option>NEW</option><option>REVIEWED</option><option>ACTIONED</option>
                   </select>
                 ) : (

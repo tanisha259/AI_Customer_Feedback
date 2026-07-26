@@ -110,7 +110,7 @@ export default function AskLoopPage() {
                           </div>
                           <div className="flex flex-col gap-2">
                             {h.cited.map((c, idx) => (
-                              <div key={c.id} className="text-[12px] text-slate-600 bg-white/40 border border-slate-200/50 backdrop-blur-sm rounded-xl px-4 py-2 hover:bg-white/60 transition-colors">
+                              <div key={c.id} className="text-[12px] text-slate-600 bg-surface/40 border border-slate-200/50 backdrop-blur-sm rounded-xl px-4 py-2 hover:bg-surface/60 transition-colors">
                                 <span className="font-mono text-primary-500 font-bold mr-1.5">[{idx + 1}]</span> 
                                 {c.content}
                               </div>
@@ -146,7 +146,7 @@ export default function AskLoopPage() {
             value={question} onChange={(e) => setQuestion(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && ask(question)}
             placeholder="Ask about your customer feedback…"
-            className="w-full pl-6 pr-14 py-4 rounded-2xl border border-slate-200/60 bg-white/80 backdrop-blur-xl shadow-float text-[14px] text-ink focus:outline-none focus:ring-2 focus:ring-primary-500/30 focus:border-primary-500/50 transition-all placeholder:text-slate-400 font-medium"
+            className="w-full pl-6 pr-14 py-4 rounded-2xl border border-slate-200/60 bg-surface/80 backdrop-blur-xl shadow-float text-[14px] text-ink focus:outline-none focus:ring-2 focus:ring-primary-500/30 focus:border-primary-500/50 transition-all placeholder:text-slate-400 font-medium"
           />
           <button onClick={() => ask(question)} disabled={busy || !question.trim()}
             className="absolute right-2.5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl bg-gradient-to-br from-primary-600 to-primary-500 text-white disabled:opacity-50 flex items-center justify-center hover:shadow-glow hover:scale-105 transition-all disabled:hover:scale-100 disabled:hover:shadow-none">

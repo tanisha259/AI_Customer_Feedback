@@ -38,26 +38,26 @@ export default function TrendsPage() {
           <div className="font-display text-4xl font-bold text-ink tracking-tight">Trends</div>
           <div className="text-[15px] font-medium text-slate-muted mt-2">Themes gaining or losing momentum, last 14 days vs the 14 before</div>
         </div>
-        <div className="w-12 h-12 rounded-2xl bg-white shadow-soft flex items-center justify-center border border-slate-100">
+        <div className="w-12 h-12 rounded-2xl bg-surface dark:bg-slate-800 shadow-soft flex items-center justify-center border border-slate-100 dark:border-slate-700">
           <Activity size={24} className="text-primary-500" />
         </div>
       </div>
 
-      <div className="glass-panel rounded-3xl overflow-x-auto mb-8 shadow-soft animate-slide-up relative">
+      <div className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-3xl overflow-x-auto mb-8 shadow-sm animate-slide-up relative">
         <div className="absolute top-0 right-1/4 w-64 h-32 bg-primary-100/30 rounded-full blur-3xl pointer-events-none" />
-        <div className="grid grid-cols-[1.6fr_120px_120px_140px_100px] min-w-[700px] px-8 py-5 text-[11px] font-bold text-slate-muted uppercase tracking-wider border-b border-slate-200/50 bg-white/40 backdrop-blur-sm relative z-10">
+        <div className="grid grid-cols-[1.6fr_120px_120px_140px_100px] min-w-[700px] px-8 py-5 text-[11px] font-extrabold text-slate-800 dark:text-slate-800 uppercase tracking-wider border-b border-slate-200 dark:border-slate-200 bg-slate-50 dark:bg-slate-50 relative z-10">
           <div>Theme</div><div>Total Volume</div><div>Last 14d</div><div>vs Prior 14d</div><div>Status</div>
         </div>
-        <div className="divide-y divide-slate-100/50 bg-white/30 relative z-10">
+        <div className="divide-y divide-slate-200 dark:divide-slate-200 bg-white dark:bg-white relative z-10">
           {rows.map((r, idx) => (
             <button key={r.id} onClick={() => setSelected(r.name)}
-              className="w-full text-left grid grid-cols-[1.6fr_120px_120px_140px_100px] min-w-[700px] px-8 py-4 items-center text-[13px] hover:bg-primary-50/50 transition-colors group">
-              <div className="flex items-center gap-3 font-semibold text-ink group-hover:text-primary-700 transition-colors">
+              className="w-full text-left grid grid-cols-[1.6fr_120px_120px_140px_100px] min-w-[700px] px-8 py-4 items-center text-[13px] hover:bg-slate-50 dark:hover:bg-slate-50 transition-colors group">
+              <div className="flex items-center gap-3 font-semibold text-gray-900 dark:text-gray-900 group-hover:text-primary-700 dark:group-hover:text-primary-700 transition-colors">
                 <span className="w-2.5 h-2.5 rounded-full shadow-sm" style={{ background: THEME_COLOR[r.name] ?? "#6366F1" }} />
                 <span className="text-[14px]">{r.name}</span>
               </div>
-              <div className="font-mono text-slate-600 bg-slate-100/50 w-fit px-2 py-0.5 rounded-md">{r.total}</div>
-              <div className="font-mono text-slate-600 bg-slate-100/50 w-fit px-2 py-0.5 rounded-md">{r.cur}</div>
+              <div className="font-mono text-[#475569] dark:text-[#475569] bg-[#F1F5F9] dark:bg-[#F1F5F9] w-fit px-2 py-0.5 rounded-md">{r.total}</div>
+              <div className="font-mono text-[#475569] dark:text-[#475569] bg-[#F1F5F9] dark:bg-[#F1F5F9] w-fit px-2 py-0.5 rounded-md">{r.cur}</div>
               <div className={`font-semibold flex items-center gap-1.5 ${r.pct > 0 ? "text-accent-coral" : r.pct < 0 ? "text-accent-sage" : "text-slate-400"}`}>
                 {r.pct > 0 ? <ArrowUpRight size={16} /> : r.pct < 0 ? <ArrowDownRight size={16} /> : <Minus size={16} />}
                 {Math.abs(r.pct)}%
@@ -76,18 +76,18 @@ export default function TrendsPage() {
       {selected && (
         <div className="animate-slide-up" style={{ animationDelay: '0.1s' }}>
           <div className="flex justify-between items-center mb-5">
-            <div className="font-display text-2xl font-bold text-ink flex items-center gap-2">
-              <span className="text-slate-400 font-normal">Feedback tagged</span> "{selected}"
+            <div className="font-display text-2xl font-bold text-gray-900 dark:text-gray-900 flex items-center gap-2">
+              <span className="text-[#475569] dark:text-[#475569] font-normal">Feedback tagged</span> <span className="font-extrabold text-gray-900 dark:text-gray-900">"{selected}"</span>
             </div>
-            <button onClick={() => setSelected(null)} className="flex items-center gap-1.5 text-[12px] font-bold text-slate-400 hover:text-ink uppercase tracking-wider transition-colors bg-white px-3 py-1.5 rounded-full shadow-sm border border-slate-200/60 hover:bg-slate-50">
+            <button onClick={() => setSelected(null)} className="flex items-center gap-1.5 text-[12px] font-bold text-[#64748B] dark:text-[#64748B] hover:text-[#111827] dark:hover:text-[#111827] uppercase tracking-wider transition-colors bg-white dark:bg-white px-3 py-1.5 rounded-full shadow-sm border border-[#E2E8F0] dark:border-[#E2E8F0] hover:bg-[#F8FAFC] dark:hover:bg-[#F8FAFC]">
               <X size={14} /> Close
             </button>
           </div>
           <div className="grid grid-cols-1 gap-3">
             {drilldown.map((it) => (
-              <div key={it.id} className="glass-panel rounded-xl px-6 py-4 text-[13px] flex justify-between gap-6 hover:shadow-soft transition-shadow hover:border-primary-200 group">
-                <div className="text-ink font-medium leading-relaxed">{it.content}</div>
-                <div className="text-slate-muted text-[11px] font-bold uppercase tracking-wider whitespace-nowrap pt-1 group-hover:text-primary-500 transition-colors">{it.channel}</div>
+              <div key={it.id} className="bg-white dark:bg-white border border-[#E2E8F0] dark:border-[#E2E8F0] rounded-xl px-6 py-4 text-[13px] flex justify-between gap-6 shadow-sm hover:shadow-md transition-shadow hover:border-[#6366F1] dark:hover:border-[#6366F1] group">
+                <div className="text-[#1E293B] dark:text-[#1E293B] font-medium leading-relaxed">{it.content}</div>
+                <div className="text-[#475569] dark:text-[#475569] text-[11px] font-bold uppercase tracking-wider whitespace-nowrap pt-1 group-hover:text-[#4F46E5] dark:group-hover:text-[#4F46E5] transition-colors">{it.channel}</div>
               </div>
             ))}
             {drilldown.length === 0 && <div className="py-8 text-center text-slate-muted text-[13px] glass-panel rounded-xl">Loading feedback...</div>}

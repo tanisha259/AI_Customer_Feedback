@@ -51,13 +51,13 @@ export default function ReportDetailPage() {
               </div>
             </div>
             
-            <button onClick={() => window.print()} className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200/60 bg-white shadow-sm text-[13px] font-bold text-slate-600 hover:text-primary-600 hover:border-primary-200 hover:shadow-soft transition-all">
+            <button onClick={() => window.print()} className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200/60 bg-surface shadow-sm text-[13px] font-bold text-slate-600 hover:text-primary-600 hover:border-primary-200 hover:shadow-soft transition-all">
               <Download size={16} /> Export / Print
             </button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-            <div className="bg-white/60 border border-slate-100 rounded-2xl p-5 shadow-sm flex items-center gap-4">
+            <div className="bg-surface/60 border border-slate-100 rounded-2xl p-5 shadow-sm flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-primary-50 text-primary-500 flex items-center justify-center">
                 <BarChart3 size={20} />
               </div>
@@ -67,7 +67,7 @@ export default function ReportDetailPage() {
               </div>
             </div>
             
-            <div className="bg-white/60 border border-slate-100 rounded-2xl p-5 shadow-sm flex items-center gap-4">
+            <div className="bg-surface/60 border border-slate-100 rounded-2xl p-5 shadow-sm flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-accent-sage/10 text-accent-sage flex items-center justify-center">
                 <TrendingUp size={20} />
               </div>
@@ -77,7 +77,7 @@ export default function ReportDetailPage() {
               </div>
             </div>
             
-            <div className="bg-white/60 border border-slate-100 rounded-2xl p-5 shadow-sm flex items-center gap-4">
+            <div className="bg-surface/60 border border-slate-100 rounded-2xl p-5 shadow-sm flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-accent-coral/10 text-accent-coral flex items-center justify-center">
                 <TrendingDown size={20} />
               </div>

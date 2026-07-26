@@ -7,6 +7,7 @@ import { useState } from "react";
 import {
   LayoutDashboard, Inbox, TrendingUp, MessageSquare, FileText, LogOut, Menu, X
 } from "lucide-react";
+import { ThemeToggle } from "./theme-toggle";
 
 const NAV = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -99,7 +100,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       </div>
 
       {/* ── Desktop Sidebar (hidden on mobile) ── */}
-      <aside className="hidden lg:flex w-[260px] bg-ink flex-col shrink-0 relative overflow-hidden shadow-2xl z-30 border-r border-white/5">
+      <aside className="hidden lg:flex w-[260px] bg-sidebar flex-col shrink-0 relative overflow-hidden shadow-2xl z-30 border-r border-white/5 dark:border-slate-800">
         <div className="absolute top-0 -left-20 w-64 h-64 bg-primary-500/20 rounded-full blur-[100px] pointer-events-none" />
         <SidebarContent />
       </aside>
@@ -114,7 +115,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
 
       {/* ── Mobile Drawer ── */}
       <aside
-        className={`fixed top-0 left-0 h-full w-[280px] bg-ink flex flex-col z-50 shadow-2xl border-r border-white/5 transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed top-0 left-0 h-full w-[280px] bg-sidebar flex flex-col z-50 shadow-2xl border-r border-white/5 dark:border-slate-800 transition-transform duration-300 ease-in-out lg:hidden ${
           drawerOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -157,8 +158,9 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             </div>
           </div>
 
-          {/* Avatar */}
+          {/* Avatar and Theme */}
           <div className="flex items-center gap-3 flex-shrink-0">
+            <ThemeToggle />
             <div className="hidden md:flex flex-col items-end">
               <div className="text-[13px] font-semibold text-ink leading-tight">{name}</div>
               <div className="text-[10px] font-medium text-slate-muted uppercase tracking-wider mt-0.5">{role}</div>

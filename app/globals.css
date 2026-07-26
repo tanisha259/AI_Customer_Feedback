@@ -4,9 +4,43 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
+:root {
+  /* Main Background */
+  --color-paper: #F8FAFC;
+  /* Sidebar Background */
+  --color-sidebar: #0B0F19;
+  /* Elevated Surface (Cards, Panels) */
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #F1F5F9;
+  /* Borders */
+  --color-border: #E2E8F0;
+  /* Primary Text */
+  --color-ink: #0B0F19;
+  /* Secondary Text */
+  --color-muted: #64748B;
+  --color-muted-foreground: #94A3B8;
+}
+
+.dark {
+  /* Deep charcoal/near-black background */
+  --color-paper: #09090b;
+  /* Slightly different dark shade for sidebar */
+  --color-sidebar: #050505;
+  /* Elevated surface for cards and tables */
+  --color-surface: #18181b;
+  --color-surface-hover: #27272a;
+  /* Subtle but clearly visible borders */
+  --color-border: #27272a;
+  /* Bright, high-contrast white text */
+  --color-ink: #FAFAFA;
+  /* Readable medium gray */
+  --color-muted: #52525b;
+  --color-muted-foreground: #a1a1aa;
+}
+
 body {
-  background: #F8FAFC;
-  color: #0B0F19;
+  background: var(--color-paper);
+  color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
@@ -22,5 +56,9 @@ body {
 
 /* Glassmorphism utilities */
 .glass-panel {
-  @apply bg-white/70 backdrop-blur-md border border-white/40 shadow-glass;
+  background: color-mix(in srgb, var(--color-surface) 70%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid color-mix(in srgb, var(--color-surface) 40%, transparent);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
 }
