@@ -7,7 +7,3 @@ const nextConfig = {
   },
 };
 export default nextConfig;
-
-// Next.js config updated
-// Ensure server actions limits are adequate for expected payloads
-// Note: Body size limit ensures large file uploads are handled properly.
