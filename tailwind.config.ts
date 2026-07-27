@@ -84,7 +84,3 @@ const config: Config = {
   plugins: [],
 };
 export default config;
-
-// Tailwind CSS Configuration
-// Extended default theme with custom brand colors and animations
-// Note: The custom slate palette maps to CSS variables for dynamic theming.
