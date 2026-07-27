@@ -6,6 +6,3 @@ export default {
     autoprefixer: {},
   },
 };
-
-// PostCSS config updated
-// Note: Autoprefixer ensures cross-browser compatibility for modern CSS features.
