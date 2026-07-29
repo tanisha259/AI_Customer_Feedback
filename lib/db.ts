@@ -16,5 +16,3 @@ export const db =
 if (process.env.NODE_ENV !== "production") {
   globalForPrisma.prisma = db;
 }
-
-// Note: prisma client setup with global singleton
