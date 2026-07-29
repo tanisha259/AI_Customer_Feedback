@@ -94,6 +94,3 @@ export const authOptions: NextAuthOptions = {
     },
   },
 };
-
-
-// Note: next-auth configuration and providers
