@@ -37,5 +37,3 @@ export function assertWorkspaceScope<T extends { workspaceId: string }>(
 ): row is T {
   return !!row && row.workspaceId === workspaceId;
 }
-
-// Note: role-based access control functions and checks
