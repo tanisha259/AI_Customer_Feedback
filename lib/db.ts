@@ -2,6 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 // Standard Next.js singleton pattern — prevents exhausting Postgres
 // connections from hot-reloading a new PrismaClient on every request in dev.
+// This is necessary because Next.js clears the Node.js cache on module hot reload.
 const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
 
 export const db =
