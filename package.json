@@ -9,6 +9,9 @@
     "feedback",
     "ai"
   ],
+  "engines": {
+    "node": ">=18.17.0"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
