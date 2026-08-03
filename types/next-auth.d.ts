@@ -1,3 +1,11 @@
+/**
+ * @file types/next-auth.d.ts
+ * Module augmentation for NextAuth to add custom fields (id, role, workspaceId)
+ * to the Session, User, and JWT types throughout the application.
+ *
+ * Without this file, accessing `session.user.role` or `session.user.workspaceId`
+ * would require casting to `any` everywhere, which undermines type safety.
+ */
 import { Role } from "@prisma/client";
 import type { DefaultSession } from "next-auth";
 
