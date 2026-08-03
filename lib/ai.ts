@@ -1,3 +1,16 @@
+/**
+ * @file lib/ai.ts
+ * All Google Gemini AI calls for Project LOOP are centralised here.
+ *
+ * Functions exported:
+ *  - `classifyFeedback`      — AI1: sentiment + theme classification.
+ *  - `embedText`             — AI2: produces vector embeddings for RAG retrieval.
+ *  - `answerFromFeedback`    — AI3: grounded Q&A over retrieved feedback (Ask LOOP).
+ *  - `generateReportNarrative` — AI4: Voice-of-Customer narrative generation.
+ *
+ * All prompts are designed to be grounded — the model is instructed not to
+ * invent data beyond what is explicitly provided in the prompt context.
+ */
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { z } from "zod";
 
