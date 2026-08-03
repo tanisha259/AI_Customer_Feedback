@@ -17,7 +17,12 @@ node_modules/.prisma
 test-*.ts
 test-*.js
 
-# Editor directories
+# Editor directories and temp files
 .vscode
 .idea
+*.swp
+*.swo
+*~
 
+# TypeScript build cache
+tsconfig.tsbuildinfo
