@@ -1,4 +1,16 @@
-/** Cosine similarity between two equal-length vectors, in [-1, 1]. */
+/**
+ * @file lib/search.ts
+ * Pure-TypeScript vector similarity utilities for the Ask LOOP RAG pipeline.
+ *
+ * No external dependencies — keeps the edge-compatible bundle small.
+ * All vectors are expected to be unit-normalised float32 arrays produced by
+ * the Gemini embedding model (`gemini-embedding-2`).
+ */
+
+/**
+ * Cosine similarity between two vectors, returns a value in [-1, 1].
+ * Returns 0 if either vector is the zero vector to avoid division by zero.
+ */
 export function cosineSimilarity(a: number[], b: number[]): number {
   let dot = 0, normA = 0, normB = 0;
   const len = Math.min(a.length, b.length);
