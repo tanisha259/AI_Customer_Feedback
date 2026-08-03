@@ -1,3 +1,18 @@
+/**
+ * @file lib/auth.ts
+ * NextAuth configuration for Project LOOP.
+ *
+ * Supports two providers:
+ *  1. Google OAuth — for users who prefer social sign-in.
+ *  2. Credentials — email + bcrypt password for non-Google accounts.
+ *
+ * JWT session strategy is used instead of database sessions because
+ * NextAuth's database sessions break when mixing an adapter with
+ * CredentialsProvider (sign-in after sign-out raises a missing session error).
+ *
+ * A workspace is automatically created for new Google OAuth users in the
+ * `createUser` event so they always land on the dashboard.
+ */
 import { type NextAuthOptions } from "next-auth";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import GoogleProvider from "next-auth/providers/google";
