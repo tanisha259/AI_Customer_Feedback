@@ -1,3 +1,18 @@
+/**
+ * @file app/api/themes/route.ts
+ * Theme clustering & trend data endpoint (AI2).
+ *
+ * GET /api/themes  — Returns all themes for the workspace with per-theme
+ *   feedback counts for three windows:
+ *     - total: all-time count.
+ *     - cur:   last 14 days.
+ *     - prev:  the 14 days before that (for trend comparison).
+ *     - pct:   percentage change cur vs prev.
+ *     - spike: true when pct >= 40% and cur >= 2 items (avoids noise on low counts).
+ *
+ *   Themes with zero feedback are excluded from the response.
+ *   Open to all authenticated roles.
+ */
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { requireSession } from "@/lib/rbac";
