@@ -1,3 +1,17 @@
+/**
+ * @file app/api/insights/route.ts
+ * Ask LOOP — RAG-based Q&A endpoint (AI3).
+ *
+ * POST /api/insights  — Accepts a natural-language question and answers it
+ *   using only feedback items that belong to the caller's workspace:
+ *     1. Embed the question via Gemini embeddings.
+ *     2. Cosine-similarity search over workspace-scoped stored embeddings.
+ *     3. Pass the top-K items to Gemini with a grounding instruction.
+ *     4. Return the answer and the exact cited items so users can verify it.
+ *
+ *   If the embeddings provider is unavailable (missing GEMINI_API_KEY),
+ *   a 503 is returned instead of silently returning a hallucinated answer.
+ */
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { db } from "@/lib/db";
