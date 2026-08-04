@@ -1,3 +1,16 @@
+/**
+ * @file components/app-shell.tsx
+ * Root application chrome that wraps every authenticated page.
+ *
+ * Renders:
+ *  - Desktop sidebar (hidden on mobile, w-[260px])
+ *  - Mobile slide-in drawer with overlay (z-50)
+ *  - Sticky top header with search, theme toggle, and user avatar
+ *  - Mobile bottom navigation bar
+ *
+ * The NAV array is the single source of truth for all sidebar/bottom-nav links.
+ * Adding a new route only requires adding one entry here.
+ */
 "use client";
 
 import Link from "next/link";
@@ -137,6 +150,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           <button
             className="lg:hidden flex items-center justify-center w-9 h-9 rounded-xl bg-white/60 border border-slate-200/60 shadow-sm text-slate-600 hover:text-primary-600 hover:bg-white transition-colors flex-shrink-0"
             onClick={() => setDrawerOpen(true)}
+            aria-label="Open navigation menu"
           >
             <Menu size={18} />
           </button>
