@@ -1,3 +1,17 @@
+/**
+ * @file app/api/feedback/route.ts
+ * REST API for the feedback inbox.
+ *
+ * GET  /api/feedback  — Paginated, filtered list of feedback items for the
+ *   caller's workspace. Supports query params: page, pageSize, q (full-text),
+ *   channel, sentiment, theme, status, days (relative date window).
+ *   Open to all authenticated roles.
+ *
+ * POST /api/feedback  — Ingest a single feedback item. Triggers the full AI
+ *   pipeline synchronously: classify (AI1) → upsert themes → save to DB →
+ *   embed for Ask LOOP retrieval (AI2, non-fatal if it fails).
+ *   Requires ADMIN or ANALYST role.
+ */
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { db } from "@/lib/db";
