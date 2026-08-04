@@ -1,3 +1,16 @@
+/**
+ * @file app/api/reports/route.ts
+ * Voice-of-Customer (VoC) report generation (AI4).
+ *
+ * GET  /api/reports  — Returns all saved reports for the workspace, newest first.
+ *   Open to all authenticated roles.
+ *
+ * POST /api/reports  — Generates a new VoC report for a configurable time window
+ *   (default: last 7 days). Stats (totals, sentiment percentages, top themes,
+ *   spike detection) are computed directly from Postgres — never guessed by the
+ *   AI — then handed to Gemini to narrate. This prevents hallucinated figures.
+ *   Requires ADMIN or ANALYST role.
+ */
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { db } from "@/lib/db";
