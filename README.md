@@ -8,7 +8,7 @@
     <img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
     <img src="https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white" alt="Prisma" />
     <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
-    <img src="https://img.shields.io/badge/Claude_AI-FF6B6B?style=for-the-badge&logo=anthropic&logoColor=white" alt="Claude AI" />
+    <img src="https://img.shields.io/badge/Gemini_AI-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Gemini AI" />
     <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
   </p>
 </div>
@@ -21,7 +21,7 @@
 Modern businesses struggle to extract actionable insights from the overwhelming volume of customer feedback they receive across various channels. Manual analysis is time-consuming, prone to human error, and fails to identify emerging trends quickly enough for product teams to act upon.
 
 **The Solution:**
-**Project LOOP** is a cutting-edge **AI Customer Feedback Intelligence Platform** designed to automate the ingestion, categorization, and analysis of customer feedback. By leveraging Anthropic's Claude AI, LOOP transforms raw feedback into structured data, actionable insights, and comprehensive Voice of Customer (VoC) reports, enabling data-driven decision-making at scale.
+**Project LOOP** is a cutting-edge **AI Customer Feedback Intelligence Platform** designed to automate the ingestion, categorization, and analysis of customer feedback. By leveraging Google Gemini AI, LOOP transforms raw feedback into structured data, actionable insights, and comprehensive Voice of Customer (VoC) reports, enabling data-driven decision-making at scale.
 
 ---
 
@@ -37,7 +37,7 @@ Modern businesses struggle to extract actionable insights from the overwhelming 
 - 🏢 **Multi-Tenant Architecture:** Securely isolate data across different organizations or client spaces.
 - 🔐 **Role-Based Access Control:** Configurable permissions for Admin, Analyst, and Viewer roles.
 - 📥 **Feedback Ingestion:** Support for manual entry and bulk CSV uploads of customer feedback.
-- 🤖 **AI Auto-Classification:** Automated categorization of feedback sentiment, intent, and product areas using Claude AI.
+- 🤖 **AI Auto-Classification:** Automated categorization of feedback sentiment, intent, and product areas using Gemini AI.
 - 📊 **Theme Clustering & Trend Analysis:** Identify recurring topics and track how customer sentiment evolves over time.
 - 💬 **Ask LOOP (RAG-based Q&A):** Chat with your feedback data! Ask questions like "What are users saying about the new UI?" and get AI-generated answers based on real customer data.
 - 📄 **Voice of Customer Reports:** Generate professional, ready-to-share summaries of customer insights.
@@ -52,7 +52,7 @@ Modern businesses struggle to extract actionable insights from the overwhelming 
 | **Frontend** | React, Next.js (App Router), Tailwind CSS, Framer Motion, Recharts |
 | **Backend** | Next.js API Routes, Node.js, TypeScript |
 | **Database** | PostgreSQL, Prisma ORM |
-| **AI / ML** | Anthropic Claude API (Classification & RAG) |
+| **AI / ML** | Google Gemini API (Classification & RAG) |
 | **Authentication**| NextAuth.js / Clerk (Add your specific auth here) |
 | **Deployment** | Vercel |
 
@@ -76,14 +76,14 @@ graph LR
     end
 
     subgraph External
-        Claude[Claude AI API]
+        Gemini[Gemini AI API]
     end
 
     Browser -->|HTTP/REST| App
     Browser -->|HTTP/REST| API
     App --> API
     API <-->|Prisma ORM| DB
-    API <-->|Prompts & Data| Claude
+    API <-->|Prompts & Data| Gemini
 ```
 
 ---
@@ -173,7 +173,7 @@ NEXTAUTH_SECRET="your-super-secret-key"
 NEXTAUTH_URL="http://localhost:3000"
 
 # AI Integration
-ANTHROPIC_API_KEY="sk-ant-your-claude-api-key"
+GEMINI_API_KEY="AIzaSy-your-gemini-api-key"
 
 # Add any other required keys (e.g., AWS, Resend, etc.)
 ```
