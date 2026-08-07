@@ -45,6 +45,7 @@ model User {
   role          Role      @default(VIEWER)
   createdAt     DateTime  @default(now())
 
+  // A user belongs to exactly one workspace
   workspaceId   String?
   workspace     Workspace? @relation(fields: [workspaceId], references: [id])
 
