@@ -79,6 +79,11 @@ function pseudoEmbedding(text: string, dims = 256): number[] {
   return vec.map((v) => v / norm);
 }
 
+/**
+ * Main seeding function.
+ * Clears existing demo data (if any) and creates a standard "Northwind Analytics"
+ * workspace populated with sample users, themes, and pre-classified feedback items.
+ */
 async function main() {
   console.log("Seeding LOOP demo workspace…");
 
