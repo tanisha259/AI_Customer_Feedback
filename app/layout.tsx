@@ -3,6 +3,7 @@ import "./globals.css";
 import AuthProvider from "@/components/session-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ai-customer-feedback-three.vercel.app"),
   title: "LOOP — AI Customer-Feedback Intelligence",
   description: "Close the loop on customer feedback.",
 };
