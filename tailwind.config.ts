@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Custom color palette tailored for the dashboard interface
         ink: "var(--color-ink)", // Deep, rich background/text
         paper: "var(--color-paper)", // Clean, minimal background
         sidebar: "var(--color-sidebar)", // Sidebar background
