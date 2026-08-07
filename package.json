@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "AI Customer Feedback Application",
   "author": "Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tanisha259/AI_Customer_Feedback.git"
+  },
   "keywords": [
     "nextjs",
     "react",
