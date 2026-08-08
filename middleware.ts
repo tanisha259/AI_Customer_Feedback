@@ -1,3 +1,7 @@
+/**
+ * @file middleware.ts
+ * Global Next.js middleware used to secure routes.
+ */
 import { withAuth } from "next-auth/middleware";
 
 // Redirects unauthenticated requests to the /login page before they ever reach a
