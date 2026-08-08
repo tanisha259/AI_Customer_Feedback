@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  poweredByHeader: false,
   experimental: {
     // Increase body size limit for large payloads in server actions
     serverActions: { bodySizeLimit: "5mb" },
