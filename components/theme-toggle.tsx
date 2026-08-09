@@ -4,6 +4,11 @@ import * as React from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
+/**
+ * A button component that toggles the application theme between light and dark modes.
+ * Uses next-themes under the hood. Prevents hydration mismatch by rendering a placeholder
+ * until the component has mounted on the client.
+ */
 export function ThemeToggle() {
   const { setTheme, theme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
