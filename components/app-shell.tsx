@@ -181,7 +181,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             </div>
             <div className="relative group cursor-pointer">
               <div className="absolute inset-0 bg-gradient-to-br from-primary-400 to-accent-cyan rounded-full blur opacity-40 group-hover:opacity-70 transition-opacity" />
-              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 text-white text-[13px] font-bold flex items-center justify-center shadow-soft relative border-2 border-surface">
+              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 text-white text-[13px] font-bold flex items-center justify-center shadow-soft relative border-2 border-surface" aria-label="User Profile">
                 {name[0]}
               </div>
             </div>
