@@ -109,7 +109,10 @@ model Feedback {
   workspaceId String
   workspace   Workspace @relation(fields: [workspaceId], references: [id])
 
+  // A feedback item can be tagged with multiple AI-discovered themes
   themes    FeedbackTheme[]
+  
+  // Dense vector representation of the feedback content for Ask LOOP RAG
   embedding Embedding?
 
   @@index([workspaceId])
