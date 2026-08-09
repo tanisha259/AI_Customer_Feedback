@@ -5,6 +5,10 @@ import { PrismaClient } from "@prisma/client";
 // This is necessary because Next.js clears the Node.js cache on module hot reload.
 const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
 
+/**
+ * Singleton PrismaClient instance.
+ * Import this into API routes and server actions to interact with the database.
+ */
 export const db =
   globalForPrisma.prisma ??
   new PrismaClient({
