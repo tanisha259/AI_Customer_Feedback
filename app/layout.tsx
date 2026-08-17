@@ -15,6 +15,10 @@ export const viewport = {
   ],
 };
 
+/**
+ * Root application layout required by Next.js.
+ * Wraps the entire application with global providers for styling and authentication.
+ */
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
