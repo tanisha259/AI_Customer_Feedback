@@ -125,6 +125,7 @@ model Theme {
   id          String  @id @default(cuid())
   name        String
   description String?
+  // Visual hex color used in UI charts and labels
   color       String?
 
   workspaceId String
