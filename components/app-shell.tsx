@@ -152,7 +152,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             onClick={() => setDrawerOpen(true)}
             aria-label="Open navigation menu"
           >
-            <Menu size={18} />
+            <Menu size={18} aria-hidden="true" />
           </button>
 
           {/* Page title shown on mobile instead of search */}
