@@ -1,3 +1,7 @@
+/**
+ * Global loading UI for the Next.js App Router.
+ * Automatically wraps page transitions in a React Suspense boundary.
+ */
 export default function Loading() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
