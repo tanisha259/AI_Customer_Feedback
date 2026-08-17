@@ -1,5 +1,9 @@
 import Link from "next/link";
 
+/**
+ * Global 404 Not Found page for the Next.js App Router.
+ * Displayed when a user navigates to a non-existent route or resource.
+ */
 export default function NotFound() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center p-24 text-center">
