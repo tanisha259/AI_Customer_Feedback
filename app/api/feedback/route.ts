@@ -20,6 +20,9 @@ import { classifyFeedback, embedText } from "@/lib/ai";
 import { Role } from "@prisma/client";
 
 // C4 — Feedback inbox: server-side pagination, filters, full-text search.
+/**
+ * Fetches a paginated, filtered list of feedback items for the current workspace.
+ */
 export async function GET(req: Request) {
   const { session, error } = await requireSession();
   if (error) return error;
