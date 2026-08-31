@@ -160,6 +160,7 @@ model Embedding {
   vector     Float[]
 }
 
+// AI-generated Voice of Customer reports
 model Report {
   id          String   @id @default(cuid())
   title       String
