@@ -66,6 +66,7 @@ const config: Config = {
         'slide-up': 'slideUp 0.4s ease-out forwards',
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
+      // Custom animation keyframes for UI transitions
       keyframes: {
         fadeIn: {
           '0%': { opacity: '0' },
