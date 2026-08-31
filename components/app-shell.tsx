@@ -94,6 +94,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           </div>
           <button
             onClick={() => signOut({ callbackUrl: "/login" })}
+            aria-label="Logout"
             className="w-full flex items-center justify-center gap-2 text-slate-400 hover:text-white text-[11px] font-semibold py-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
           >
             <LogOut size={14} /> Sign out
