@@ -21,6 +21,7 @@ const ANSWER_MODEL = "gemini-2.5-flash";
 const REPORT_MODEL = "gemini-2.5-flash";
 const EMBEDDING_MODEL = "gemini-embedding-2";
 
+/** Strips markdown code fences from LLM responses to ensure clean JSON parsing. */
 function stripFences(s: string) {
   return s.replace(/```json/gi, "").replace(/```/g, "").trim();
 }
