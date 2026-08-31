@@ -23,6 +23,7 @@ export function cosineSimilarity(a: number[], b: number[]): number {
   return dot / (Math.sqrt(normA) * Math.sqrt(normB));
 }
 
+/** Represents a piece of text (payload) alongside its dense vector representation. */
 export type Candidate<T> = { vector: number[]; payload: T };
 
 /** Ranks candidates by cosine similarity to the query vector, descending. */
