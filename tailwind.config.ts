@@ -83,6 +83,7 @@ const config: Config = {
       }
     },
   },
+  // Add Tailwind plugins here (e.g., typography, forms)
   plugins: [],
 };
 export default config;
