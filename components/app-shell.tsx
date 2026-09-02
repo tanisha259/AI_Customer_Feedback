@@ -62,6 +62,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             <Link
               key={n.href}
               href={n.href}
+              title={n.label}
               onClick={() => setDrawerOpen(false)}
               className={`flex items-center gap-3.5 px-4 py-3 rounded-xl text-[13px] font-medium transition-all duration-300 relative ${
                 active
@@ -202,6 +203,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
               <Link
                 key={n.href}
                 href={n.href}
+                title={n.label}
                 className={`flex flex-col items-center gap-1 px-3 py-1.5 rounded-xl transition-all ${
                   active ? "text-primary-600" : "text-slate-400"
                 }`}
