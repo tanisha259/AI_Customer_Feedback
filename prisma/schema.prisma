@@ -10,7 +10,7 @@ datasource db {
 enum Role {
   ADMIN
   ANALYST
-  VIEWER
+  VIEWER // Read-only access to dashboards and reports
 }
 
 enum Sentiment {
@@ -20,7 +20,7 @@ enum Sentiment {
 }
 
 enum FeedbackStatus {
-  NEW
+  NEW // Needs review
   REVIEWED
   ACTIONED
 }
