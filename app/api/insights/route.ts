@@ -26,6 +26,9 @@ const AskSchema = z.object({ question: z.string().min(1) });
 // stored embeddings only (never another tenant's), 3) pass just those items
 // to Claude with a grounding instruction, 4) return the answer + the exact
 // items it used so the person can verify it.
+/**
+ * Handles RAG-based natural language questions over the workspace's feedback.
+ */
 export async function POST(req: Request) {
   const { session, error } = await requireSession();
   if (error) return error;
