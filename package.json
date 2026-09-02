@@ -9,6 +9,9 @@
     "url": "https://github.com/tanisha259/AI_Customer_Feedback.git"
   },
   "homepage": "https://ai-customer-feedback-three.vercel.app",
+  "bugs": {
+    "url": "https://github.com/tanisha259/AI_Customer_Feedback/issues"
+  },
   "keywords": [
     "nextjs",
     "react",
