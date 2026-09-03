@@ -19,6 +19,9 @@ import { generateReportNarrative, type ReportStats } from "@/lib/ai";
 import { Role } from "@prisma/client";
 
 // C-list — saved reports, scoped to workspace.
+/**
+ * Returns all saved Voice-of-Customer reports for the workspace, newest first.
+ */
 export async function GET() {
   const { session, error } = await requireSession();
   if (error) return error;
