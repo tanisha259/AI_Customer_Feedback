@@ -47,16 +47,19 @@ body {
   scroll-behavior: smooth;
 }
 
+/* Text selection — inverts ink/paper for visible highlighting */
 ::selection {
   background-color: var(--color-ink);
   color: var(--color-paper);
 }
 
+/* Custom scrollbar — thin and subtle so it doesn't overpower the UI */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
 
+/* Spin utility — used by loading spinners across the app */
 .spin { animation: spin 0.9s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
