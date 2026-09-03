@@ -20,6 +20,9 @@ import { requireSession } from "@/lib/rbac";
 // AI2 — Theme clustering & trends. Counts total / last-14-days / prior-14-days
 // per theme so the caller can flag spikes (Section 08, AI2 acceptance
 // criteria #2).
+/**
+ * Returns all themes for the workspace with per-theme feedback counts and spike indicators.
+ */
 export async function GET() {
   const { session, error } = await requireSession();
   if (error) return error;
