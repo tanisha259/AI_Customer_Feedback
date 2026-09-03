@@ -99,6 +99,10 @@ export const authOptions: NextAuthOptions = {
 
       return token;
     },
+    /**
+     * Copies custom JWT fields (id, role, workspaceId) into the
+     * session object so client components can access them.
+     */
     async session({ session, token }) {
       if (session.user) {
         (session.user as any).id = token.id;
