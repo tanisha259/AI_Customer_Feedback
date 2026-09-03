@@ -25,6 +25,7 @@ enum FeedbackStatus {
   ACTIONED
 }
 
+// Top-level tenant container — every user, piece of feedback, and report belongs to one workspace
 model Workspace {
   id        String     @id @default(cuid())
   name      String
