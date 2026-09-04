@@ -72,6 +72,10 @@ const CreateSchema = z.object({
 
 // C3 — single-entry ingestion. AI1 — classify on ingest, not on every page
 // load (Section 09, "Be economical").
+/**
+ * Ingests a new feedback item, runs AI classification, upserts themes,
+ * persists to DB, then attempts to generate an embedding for Ask LOOP retrieval.
+ */
 export async function POST(req: Request) {
   const { session, error } = await requireSession([Role.ADMIN, Role.ANALYST]);
   if (error) return error;
