@@ -5,6 +5,10 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
+/**
+ * Sign-in page supporting credentials (email + password) and Google OAuth.
+ * Pre-filled with demo credentials so reviewers can log in without setup.
+ */
 export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("admin@northwind.demo");
