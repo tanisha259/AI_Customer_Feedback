@@ -5,6 +5,11 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
+/**
+ * Workspace creation page — collects name, email, password, and workspace name.
+ * The first user to sign up becomes the workspace Admin automatically.
+ * Also supports one-click signup via Google OAuth.
+ */
 export default function SignupPage() {
   const router = useRouter();
   const [form, setForm] = useState({ name: "", email: "", password: "", workspaceName: "" });
