@@ -40,6 +40,11 @@ const GenerateSchema = z.object({ days: z.number().int().positive().default(7) }
 // Postgres (never guessed), then handed to Claude to narrate — Section 09.3
 // "this keeps the report accurate and cheap, and stops the model from
 // hallucinating figures."
+/**
+ * Generates a new VoC report for the given time window.
+ * Stats are computed from Postgres before being passed to Gemini — the model
+ * narrates only, preventing hallucinated numbers.
+ */
 export async function POST(req: Request) {
   const { session, error } = await requireSession([Role.ADMIN, Role.ANALYST]);
   if (error) return error;
