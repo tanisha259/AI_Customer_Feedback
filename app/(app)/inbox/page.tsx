@@ -12,11 +12,13 @@ type Feedback = {
   themes: { theme: { name: string } }[];
 };
 
+/** Renders a coloured dot indicating positive (green), negative (red), or neutral (grey) sentiment. */
 function SentimentDot({ s }: { s: Feedback["sentiment"] }) {
   const color = s === "POS" ? "#10B981" : s === "NEG" ? "#EF4444" : "#94A3B8";
   return <span className="inline-block w-2 h-2 rounded-full shadow-sm" style={{ background: color }} />;
 }
 
+/** Modal form for manually adding a single feedback item. Triggers the full AI classification pipeline on save. */
 function AddFeedbackModal({ onClose, onAdded }: { onClose: () => void; onAdded: () => void }) {
   const [content, setContent] = useState("");
   const [channel, setChannel] = useState(CHANNELS[0]);
