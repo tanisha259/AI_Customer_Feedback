@@ -6,6 +6,7 @@ import {
   BarChart, Bar, CartesianGrid,
 } from "recharts";
 
+// Maps well-known theme names to brand-consistent colours used in chart cells
 const THEME_COLOR: Record<string, string> = {
   "Onboarding": "#6366F1", "Billing & Invoicing": "#F59E0B", "Mobile Experience": "#10B981",
   "Performance & Speed": "#EF4444", "Integrations & SSO": "#06B6D4", "Reporting & Exports": "#8B5CF6",
@@ -18,6 +19,7 @@ type Feedback = {
   createdAt: string; themes: { theme: { name: string } }[];
 };
 
+/** Displays a single KPI metric with an optional accent colour and hover animation. */
 function StatCard({ label, value, accent }: { label: string; value: string | number; accent?: string }) {
   return (
     <div className="flex-1 glass-panel rounded-2xl px-6 py-5 group hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
@@ -32,6 +34,7 @@ function StatCard({ label, value, accent }: { label: string; value: string | num
   );
 }
 
+/** Animated loading placeholder shown while KPI data is being fetched. */
 function SkeletonCard() {
   return (
     <div className="flex-1 glass-panel rounded-2xl px-6 py-5 animate-pulse">
