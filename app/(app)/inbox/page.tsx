@@ -82,6 +82,11 @@ function AddFeedbackModal({ onClose, onAdded }: { onClose: () => void; onAdded: 
   );
 }
 
+/**
+ * Feedback inbox — a paginated, filterable table of all feedback for the workspace.
+ * ADMIN and ANALYST users can add individual items, import CSV batches, or pull
+ * a simulated channel feed. VIEWER role sees read-only status badges.
+ */
 export default function InboxPage() {
   const { data: session } = useSession();
   const role = session?.user?.role ?? "VIEWER";
