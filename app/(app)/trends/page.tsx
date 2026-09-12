@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ArrowUpRight, ArrowDownRight, Minus, X, Activity } from "lucide-react";
 
+// Colour map for chart dots — mirrors the palette used in the dashboard.
 const THEME_COLOR: Record<string, string> = {
   "Onboarding": "#6366F1", "Billing & Invoicing": "#F59E0B", "Mobile Experience": "#10B981",
   "Performance & Speed": "#EF4444", "Integrations & SSO": "#06B6D4", "Reporting & Exports": "#8B5CF6",
@@ -10,9 +11,15 @@ const THEME_COLOR: Record<string, string> = {
   "Feature Requests": "#84CC16",
 };
 
+/** Aggregated theme statistics comparing the current 14-day window to the prior 14 days. */
 type ThemeRow = { id: string; name: string; total: number; cur: number; prev: number; pct: number; spike: boolean };
+/** Minimal feedback projection used in the theme drilldown panel. */
 type Feedback = { id: string; content: string; channel: string; sentiment: string | null };
 
+/**
+ * Trends page — shows each theme's volume change (last 14 days vs prior 14 days)
+ * with a spike badge. Clicking a theme opens an inline drilldown of the raw feedback.
+ */
 export default function TrendsPage() {
   const [rows, setRows] = useState<ThemeRow[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
