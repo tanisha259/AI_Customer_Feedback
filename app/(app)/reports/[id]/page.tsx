@@ -4,11 +4,16 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { Download, ArrowLeft, FileText, BarChart3, TrendingDown, TrendingUp } from "lucide-react";
 
+/** Full report data including the Gemini-written narrative and aggregated sentiment stats. */
 type Report = {
   id: string; title: string; createdAt: string; narrative: string;
   contentJson: { total: number; negPct: number; posPct: number };
 };
 
+/**
+ * Report detail page. Fetches a single VoC report by ID and renders
+ * summary stat cards, the AI-generated narrative, and an Export / Print button.
+ */
 export default function ReportDetailPage() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
