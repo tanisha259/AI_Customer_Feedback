@@ -5,8 +5,13 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Sparkles, Loader2, ChevronRight, FileText } from "lucide-react";
 
+/** Lightweight report metadata shown in the reports list — full narrative is loaded on the detail page. */
 type ReportSummary = { id: string; title: string; createdAt: string; contentJson: { total: number; negPct: number } };
 
+/**
+ * Reports index page. Lists previously generated VoC digests and lets
+ * ADMIN / ANALYST users generate a new one for a chosen time window.
+ */
 export default function ReportsPage() {
   const { data: session } = useSession();
   const router = useRouter();
