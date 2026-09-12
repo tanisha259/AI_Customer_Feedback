@@ -13,6 +13,11 @@ const SignupSchema = z.object({
   workspaceName: z.string().min(1),
 });
 
+/**
+ * Registers a new user and workspace in a single database transaction.
+ * The signing-up user is automatically assigned the ADMIN role.
+ * Returns 409 if the email is already taken.
+ */
 export async function POST(req: Request) {
   const body = await req.json();
   const parsed = SignupSchema.safeParse(body);
