@@ -44,6 +44,11 @@ function SkeletonCard() {
   );
 }
 
+/**
+ * Main analytics dashboard. Fetches the last 90 days of workspace feedback
+ * client-side and renders volume, sentiment distribution, and top-themes charts
+ * using Recharts. Shows skeleton cards while loading.
+ */
 export default function DashboardPage() {
   const [items, setItems] = useState<Feedback[]>([]);
   const [loading, setLoading] = useState(true);
