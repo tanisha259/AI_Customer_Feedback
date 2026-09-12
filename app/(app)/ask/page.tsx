@@ -3,9 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Send, Loader2, Trash2, MessageSquareText, Sparkles } from "lucide-react";
 
+/** A single feedback item returned as a citation alongside an AI answer. */
 type Cited = { id: string; content: string; channel: string; sentiment: string | null };
+/** One turn in the Ask LOOP conversation — either a user question or an AI answer with optional citations. */
 type Turn = { role: "user" | "assistant"; text: string; cited?: Cited[] };
 
+// Prompt chips shown on the empty state to help users discover what they can ask.
 const SUGGESTIONS = [
   "What are users saying about onboarding?",
   "Is anyone unhappy with pricing?",
@@ -13,6 +16,11 @@ const SUGGESTIONS = [
   "Are there complaints about the mobile app?",
 ];
 
+/**
+ * "Ask LOOP" conversational AI page.
+ * Sends natural-language questions to /api/insights and displays
+ * the Gemini-generated answer alongside the grounding feedback citations.
+ */
 export default function AskLoopPage() {
   const [question, setQuestion] = useState("");
   const [history, setHistory] = useState<Turn[]>([]);
