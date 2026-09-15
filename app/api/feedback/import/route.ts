@@ -25,6 +25,11 @@ function parseCsv(text: string): Record<string, string>[] {
   });
 }
 
+/**
+ * Bulk imports feedback from a CSV string.
+ * Iterates row-by-row, running the AI classification pipeline on each item
+ * before inserting into the database and generating embeddings.
+ */
 export async function POST(req: Request) {
   const { session, error } = await requireSession([Role.ADMIN, Role.ANALYST]);
   if (error) return error;
