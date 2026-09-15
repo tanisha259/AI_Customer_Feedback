@@ -9,6 +9,10 @@ const PatchSchema = z.object({ status: z.nativeEnum(FeedbackStatus) });
 // C4 — status workflow: NEW -> REVIEWED -> ACTIONED, changeable inline.
 // Never trust the id alone: fetch, confirm workspace match, THEN mutate —
 // so Company A can never edit Company B's row by guessing an id in the URL.
+/**
+ * Updates the status of a specific feedback item (e.g., NEW -> REVIEWED).
+ * Validates that the caller's workspace matches the feedback's workspace.
+ */
 export async function PATCH(req: Request, { params }: { params: { id: string } }) {
   const { session, error } = await requireSession([Role.ADMIN, Role.ANALYST]);
   if (error) return error;
