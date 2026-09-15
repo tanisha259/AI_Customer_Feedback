@@ -30,6 +30,10 @@ const NAV = [
   { href: "/reports",   label: "Reports",   icon: FileText },
 ];
 
+/**
+ * Client-side layout wrapper providing the sidebar, mobile drawer, and top navigation.
+ * Controls the active route highlighting and responsive state.
+ */
 export default function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const { data: session } = useSession();
