@@ -1,3 +1,8 @@
+/**
+ * @file app/api/auth/[...nextauth]/route.ts
+ * NextAuth.js catch-all API route.
+ * Handles login, logout, and session checks via the configured authOptions.
+ */
 import NextAuth from "next-auth";
 import { authOptions } from "@/lib/auth";
 
