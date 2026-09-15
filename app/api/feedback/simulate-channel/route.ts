@@ -13,6 +13,10 @@ const CHANNEL_BATCH = [
   { content: "Four stars, would be five if the mobile app supported landscape mode.", channel: "App Store Review", label: "Pinehall Studio" },
 ];
 
+/**
+ * Simulates an incoming channel integration (e.g. Zendesk or App Store).
+ * Inserts a hardcoded batch of feedback items and runs them through the AI pipeline.
+ */
 export async function POST() {
   const { session, error } = await requireSession([Role.ADMIN, Role.ANALYST]);
   if (error) return error;
