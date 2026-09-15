@@ -5,6 +5,10 @@ import { classifyFeedback } from "@/lib/ai";
 import { Role } from "@prisma/client";
 
 // AI1 acceptance criteria #4 — a manual "re-classify" action for corrections.
+/**
+ * Forces a re-classification of an existing feedback item via Gemini.
+ * Discards old themes and applies newly detected ones, regenerating the vector.
+ */
 export async function POST(_req: Request, { params }: { params: { id: string } }) {
   const { session, error } = await requireSession([Role.ADMIN, Role.ANALYST]);
   if (error) return error;
