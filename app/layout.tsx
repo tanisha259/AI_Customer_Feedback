@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import AuthProvider from "@/components/session-provider";
 import { ThemeProvider } from "@/components/theme-provider";
+/** Global SEO and site metadata for the application. */
 export const metadata: Metadata = {
   // Base URL for resolving relative metadata URLs
   metadataBase: new URL("https://ai-customer-feedback-three.vercel.app"),
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
   description: "Close the loop on customer feedback.",
 };
 
+/** Global viewport and theme color settings for responsive design. */
 export const viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
