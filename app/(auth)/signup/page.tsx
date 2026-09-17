@@ -1,3 +1,7 @@
+/**
+ * @file app/(auth)/signup/page.tsx
+ * Workspace creation and user registration page.
+ */
 "use client";
 
 import { useState } from "react";
