@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
+/**
+ * Global Next.js configuration.
+ * Disables the X-Powered-By header and applies strict security headers to all routes.
+ */
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
