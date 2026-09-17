@@ -1,3 +1,7 @@
+/**
+ * @file app/(auth)/login/page.tsx
+ * Sign-in page for the LOOP application.
+ */
 "use client";
 
 import { useState } from "react";
