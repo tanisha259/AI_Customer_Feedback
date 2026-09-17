@@ -11,9 +11,11 @@ export default withAuth({
   pages: { signIn: "/login" },
 });
 
-// Protect all authenticated app routes.
-// Auth-routes (/login, /register) and static assets are intentionally excluded
-// so unauthenticated users can reach the sign-in page without a redirect loop.
+/**
+ * Middleware matcher configuration.
+ * Auth-routes (/login, /register) and static assets are intentionally excluded
+ * so unauthenticated users can reach the sign-in page without a redirect loop.
+ */
 export const config = {
   matcher: [
     "/dashboard/:path*",
