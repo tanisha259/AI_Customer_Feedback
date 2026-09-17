@@ -20,6 +20,10 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { db } from "@/lib/db";
 
+/**
+ * Global authentication configuration object.
+ * Defines OAuth providers, session strategy, and JWT enrichment callbacks.
+ */
 export const authOptions: NextAuthOptions = {
   // PrismaAdapter is needed to persist Google OAuth accounts/users to the DB.
   // We use strategy: "jwt" so no Session table rows are created — this is
