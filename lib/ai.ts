@@ -26,6 +26,7 @@ function stripFences(s: string) {
   return s.replace(/```json/gi, "").replace(/```/g, "").trim();
 }
 
+/** Zod schema enforcing the expected JSON shape from the AI classification model. */
 const ClassificationSchema = z.object({
   sentiment: z.enum(["POS", "NEU", "NEG"]),
   sentimentScore: z.number().min(-1).max(1),
@@ -85,6 +86,7 @@ export async function embedText(text: string): Promise<number[]> {
   return result.embedding.values;
 }
 
+/** Represents a piece of feedback used by the Ask LOOP AI to ground its answers. */
 export type CitedFeedback = { id: string; content: string; channel: string; sentiment: string | null };
 
 /**
@@ -110,6 +112,7 @@ Question: ${question}`;
   return result.response.text();
 }
 
+/** Aggregated database statistics passed to the AI to narrate a Voice-of-Customer report. */
 export type ReportStats = {
   total: number;
   negPct: number;
