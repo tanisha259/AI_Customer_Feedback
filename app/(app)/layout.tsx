@@ -4,6 +4,7 @@ import { authOptions } from "@/lib/auth";
 import AppShell from "@/components/app-shell";
 
 /**
+ * @file app/(app)/layout.tsx
  * Layout for all authenticated application routes.
  * Guards all child pages by redirecting unauthenticated users to /login,
  * then wraps the content in the AppShell (sidebar + header + nav).
