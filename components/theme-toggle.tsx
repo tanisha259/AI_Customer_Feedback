@@ -5,6 +5,7 @@ import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
 /**
+ * @file components/theme-toggle.tsx
  * A button component that toggles the application theme between light and dark modes.
  * Uses next-themes under the hood. Prevents hydration mismatch by rendering a placeholder
  * until the component has mounted on the client.
