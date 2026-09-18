@@ -1,3 +1,7 @@
+/**
+ * @file app/error.tsx
+ * Global error boundary for the application.
+ */
 "use client";
 
 import { useEffect } from "react";
