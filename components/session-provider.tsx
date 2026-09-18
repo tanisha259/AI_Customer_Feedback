@@ -5,6 +5,7 @@ import { SessionProvider } from "next-auth/react";
 // next-auth's SessionProvider is client-only (uses React context + polling),
 // so it's isolated here and imported into the server-rendered root layout.
 /**
+ * @file components/session-provider.tsx
  * Wraps the application in a NextAuth SessionProvider.
  *
  * @param props The component props.
