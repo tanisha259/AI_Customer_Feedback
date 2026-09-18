@@ -1,4 +1,5 @@
 /**
+ * @file app/loading.tsx
  * Global loading UI for the Next.js App Router.
  * Automatically wraps page transitions in a React Suspense boundary.
  */
