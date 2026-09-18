@@ -57,6 +57,7 @@ model User {
   @@index([workspaceId])
 }
 
+// NextAuth: Account model for OAuth provider linking (e.g. Google)
 model Account {
   id                 String  @id @default(cuid())
   userId             String
@@ -76,6 +77,7 @@ model Account {
   @@unique([provider, providerAccountId])
 }
 
+// NextAuth: Session model (mostly unused due to JWT strategy, but required by Prisma adapter)
 model Session {
   id           String   @id @default(cuid())
   sessionToken String   @unique
