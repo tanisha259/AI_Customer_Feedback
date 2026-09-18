@@ -1,3 +1,7 @@
+/**
+ * @file lib/db.ts
+ * Global Prisma database client singleton.
+ */
 import { PrismaClient } from "@prisma/client";
 
 // Standard Next.js singleton pattern — prevents exhausting Postgres
