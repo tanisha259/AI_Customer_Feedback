@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 /**
+ * @file app/not-found.tsx
  * Global 404 Not Found page for the Next.js App Router.
  * Displayed when a user navigates to a non-existent route or resource.
  */
