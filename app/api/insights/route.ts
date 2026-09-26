@@ -19,6 +19,7 @@ import { requireSession } from "@/lib/rbac";
 import { embedText, answerFromFeedback } from "@/lib/ai";
 import { retrieveTopK } from "@/lib/search";
 
+/** Zod schema for incoming RAG queries. */
 const AskSchema = z.object({ question: z.string().min(1) });
 
 // AI3 — Ask LOOP grounded Q&A. Retrieve-then-answer per Section 09.2:
