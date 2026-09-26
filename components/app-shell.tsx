@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 
+/** Configuration for the main navigation menu items. */
 const NAV = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/inbox",     label: "Inbox",     icon: Inbox },
