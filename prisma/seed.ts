@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
+/** Default themes to populate for new workspaces. */
 const THEME_LIST = [
   { name: "Onboarding", color: "#6E56CF" },
   { name: "Billing & Invoicing", color: "#E3A33E" },
@@ -16,10 +17,10 @@ const THEME_LIST = [
   { name: "Feature Requests", color: "#7C9A4A" },
 ];
 
-// Pre-classified so `npm run seed` works instantly with zero API calls and
-// zero cost. New feedback ingested through the app (Section 08 / AI1) is
-// classified live by Claude in lib/ai.ts — this seed data just gives you a
-// realistic backlog to demo against on day one.
+/** 
+ * Pre-classified mock data so `npm run seed` works instantly with zero API calls and zero cost. 
+ * Real ingestion uses Claude for classification, but this provides an immediate demo backlog.
+ */
 const SEED_FEEDBACK = [
   { content: "Onboarding took forever — I couldn't figure out how to invite my team.", channel: "Support Ticket", sentiment: "NEG", score: -0.6, themes: ["Onboarding"], featureArea: "Team invites", label: "Northwind Freight", status: "REVIEWED", daysAgo: 2 },
   { content: "The new dashboard is gorgeous and finally fast. Huge improvement over last quarter.", channel: "App Store Review", sentiment: "POS", score: 0.8, themes: ["UI / UX Design", "Performance & Speed"], featureArea: "Dashboard redesign", label: "Halcyon Labs", status: "ACTIONED", daysAgo: 4 },
