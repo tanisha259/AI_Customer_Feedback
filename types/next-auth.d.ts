@@ -12,6 +12,7 @@ import type { DefaultSession } from "next-auth";
 // Module augmentation so `session.user.role` / `.workspaceId` are typed
 // everywhere instead of falling back to `any`.
 declare module "next-auth" {
+  /** Extended NextAuth Session with tenant and role context. */
   interface Session {
     user: {
       id: string;
