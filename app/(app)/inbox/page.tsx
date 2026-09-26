@@ -1,11 +1,17 @@
+/**
+ * @file app/(app)/inbox/page.tsx
+ * Feedback inbox and classification interface.
+ */
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
 import { useSession } from "next-auth/react";
 import { Search, Plus, Upload, Radio, Loader2, X, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 
+/** List of valid input channels for new feedback items. */
 const CHANNELS = ["Support Ticket", "App Store Review", "NPS Survey", "Sales Call Note", "Community Post"];
 
+/** Represents a feedback item with its AI-assigned classification. */
 type Feedback = {
   id: string; content: string; channel: string; sentiment: "POS" | "NEU" | "NEG" | null;
   status: "NEW" | "REVIEWED" | "ACTIONED"; customerLabel: string | null;
