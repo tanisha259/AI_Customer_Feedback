@@ -1,3 +1,7 @@
+/**
+ * @file app/api/feedback/[id]/route.ts
+ * REST API for updating single feedback items.
+ */
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { db } from "@/lib/db";
