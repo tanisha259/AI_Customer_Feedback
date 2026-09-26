@@ -8,8 +8,7 @@ import bcrypt from "bcryptjs";
 import { db } from "@/lib/db";
 import { Role } from "@prisma/client";
 
-// C1 — Sign-up creates a User AND a Workspace; the creator becomes ADMIN
-// (Section 08, C1 acceptance criteria #1).
+/** Zod schema validating new workspace registration payloads. */
 const SignupSchema = z.object({
   name: z.string().min(1),
   email: z.string().email(),
