@@ -1,3 +1,7 @@
+/**
+ * @file app/(app)/ask/page.tsx
+ * Conversational RAG interface for querying workspace feedback.
+ */
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -8,7 +12,7 @@ type Cited = { id: string; content: string; channel: string; sentiment: string |
 /** One turn in the Ask LOOP conversation — either a user question or an AI answer with optional citations. */
 type Turn = { role: "user" | "assistant"; text: string; cited?: Cited[] };
 
-// Prompt chips shown on the empty state to help users discover what they can ask.
+/** Prompt chips shown on the empty state to help users discover what they can ask. */
 const SUGGESTIONS = [
   "What are users saying about onboarding?",
   "Is anyone unhappy with pricing?",
