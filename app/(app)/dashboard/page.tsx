@@ -1,3 +1,7 @@
+/**
+ * @file app/(app)/dashboard/page.tsx
+ * Main analytics dashboard for the LOOP application.
+ */
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
@@ -6,7 +10,7 @@ import {
   BarChart, Bar, CartesianGrid,
 } from "recharts";
 
-// Maps well-known theme names to brand-consistent colours used in chart cells
+/** Maps well-known theme names to brand-consistent colours used in chart cells. */
 const THEME_COLOR: Record<string, string> = {
   "Onboarding": "#6366F1", "Billing & Invoicing": "#F59E0B", "Mobile Experience": "#10B981",
   "Performance & Speed": "#EF4444", "Integrations & SSO": "#06B6D4", "Reporting & Exports": "#8B5CF6",
@@ -14,6 +18,7 @@ const THEME_COLOR: Record<string, string> = {
   "Feature Requests": "#84CC16",
 };
 
+/** Type definition for feedback items rendered on the dashboard. */
 type Feedback = {
   id: string; content: string; channel: string; sentiment: "POS" | "NEU" | "NEG" | null;
   createdAt: string; themes: { theme: { name: string } }[];
