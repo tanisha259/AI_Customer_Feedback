@@ -1,9 +1,13 @@
+/**
+ * @file app/(app)/trends/page.tsx
+ * Theme trend analysis and comparison views.
+ */
 "use client";
 
 import { useEffect, useState } from "react";
 import { ArrowUpRight, ArrowDownRight, Minus, X, Activity } from "lucide-react";
 
-// Colour map for chart dots — mirrors the palette used in the dashboard.
+/** Colour map for chart dots — mirrors the palette used in the dashboard. */
 const THEME_COLOR: Record<string, string> = {
   "Onboarding": "#6366F1", "Billing & Invoicing": "#F59E0B", "Mobile Experience": "#10B981",
   "Performance & Speed": "#EF4444", "Integrations & SSO": "#06B6D4", "Reporting & Exports": "#8B5CF6",
