@@ -25,3 +25,4 @@ You can expect:
 - Rotate `NEXTAUTH_SECRET` and `GEMINI_API_KEY` regularly.
 - Ensure your PostgreSQL connection string uses `sslmode=require`.
 - Keep all dependencies up to date (`npm audit` to check for known vulnerabilities).
+
