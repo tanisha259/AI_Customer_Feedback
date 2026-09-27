@@ -29,3 +29,5 @@ test-*.js
 
 # TypeScript build cache
 tsconfig.tsbuildinfo
+
+# End of file
