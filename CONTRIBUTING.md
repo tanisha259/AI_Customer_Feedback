@@ -69,3 +69,4 @@ This project follows [Conventional Commits](https://www.conventionalcommits.org/
 Common types: `feat`, `fix`, `docs`, `style`, `refactor`, `chore`, `test`.
 
 Thank you for contributing! 🎉
+
