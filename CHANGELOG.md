@@ -34,3 +34,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Recharts-powered analytics dashboard.
 - Dark/light mode with `next-themes`.
 - Basic documentation and configuration files.
+
