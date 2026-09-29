@@ -17,3 +17,5 @@ indent_size = 2
 
 [*.sh]
 end_of_line = lf
+
+# styling check
