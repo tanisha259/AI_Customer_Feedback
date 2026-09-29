@@ -1,12 +1,17 @@
+/**
+ * @file app/api/feedback/simulate-channel/route.ts
+ * Simulates incoming feedback from a third-party channel integration.
+ */
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { requireSession } from "@/lib/rbac";
 import { classifyFeedback, embedText } from "@/lib/ai";
 import { Role } from "@prisma/client";
 
-// C3 acceptance criteria #3 — at least one "channel" button that seeds
-// realistic items to simulate a real integration (App Store / Zendesk pull
-// is explicitly out of scope per Section 4.2 — this mimics one).
+/**
+ * Mock feedback items representing a pull from an external source (e.g., App Store).
+ * Mimics an integration sync without requiring external API keys.
+ */
 const CHANNEL_BATCH = [
   { content: "Five stars. The Ask feature answered our onboarding question instantly with real quotes.", channel: "App Store Review", label: "Tidewell Partners" },
   { content: "Two stars — the app is slow to load our workspace every morning, takes almost ten seconds.", channel: "App Store Review", label: "Ashgrove Retail" },
