@@ -26,3 +26,5 @@ You can expect:
 - Ensure your PostgreSQL connection string uses `sslmode=require`.
 - Keep all dependencies up to date (`npm audit` to check for known vulnerabilities).
 
+
+<!-- check -->
