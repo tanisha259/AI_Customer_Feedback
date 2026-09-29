@@ -1,3 +1,7 @@
+/**
+ * @file app/(app)/reports/[id]/page.tsx
+ * Displays a single, generated Voice-of-Customer report.
+ */
 "use client";
 
 import { useEffect, useState } from "react";
