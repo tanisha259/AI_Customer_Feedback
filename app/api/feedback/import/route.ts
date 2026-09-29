@@ -5,12 +5,13 @@ import { requireSession } from "@/lib/rbac";
 import { classifyFeedback, embedText } from "@/lib/ai";
 import { Role } from "@prisma/client";
 
+/** Zod schema validating CSV bulk import payloads. */
 const ImportSchema = z.object({ csvText: z.string().min(1) });
 
-// C3 — CSV bulk upload: parse rows, report how many imported / how many
-// failed (Section 08, C3 acceptance criteria #2). Expected columns per
-// Appendix A: content, channel, customer_label, created_at (sentiment/themes
-// left blank so the classifier fills them on import).
+/**
+ * Parses raw CSV text into a generic object array.
+ * Expected columns per Appendix A: content, channel, customer_label, created_at.
+ */
 function parseCsv(text: string): Record<string, string>[] {
   const lines = text.trim().split(/\r?\n/);
   if (lines.length < 2) return [];
