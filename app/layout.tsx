@@ -1,3 +1,7 @@
+/**
+ * @file app/layout.tsx
+ * Root Next.js layout configuring global providers and fonts.
+ */
 import type { Metadata } from "next";
 import "./globals.css";
 import AuthProvider from "@/components/session-provider";
