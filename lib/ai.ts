@@ -34,6 +34,7 @@ const ClassificationSchema = z.object({
   featureArea: z.string(),
   rationale: z.string(),
 });
+/** Strongly typed representation of the AI-classified feedback. */
 export type Classification = z.infer<typeof ClassificationSchema>;
 
 /**
