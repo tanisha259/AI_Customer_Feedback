@@ -35,3 +35,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Dark/light mode with `next-themes`.
 - Basic documentation and configuration files.
 
+
+<!-- sync -->
