@@ -34,6 +34,7 @@ export async function GET() {
   return NextResponse.json({ reports });
 }
 
+/** Zod schema validating report generation payloads (number of days). */
 const GenerateSchema = z.object({ days: z.number().int().positive().default(7) });
 
 // AI4 — Voice-of-Customer report. Stats are computed here directly from
