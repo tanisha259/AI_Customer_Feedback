@@ -140,6 +140,7 @@ model Theme {
   @@index([workspaceId])
 }
 
+// Join table linking feedback items to their AI-assigned themes with confidence scores.
 model FeedbackTheme {
   feedbackId String
   themeId    String
