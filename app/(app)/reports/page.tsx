@@ -1,3 +1,7 @@
+/**
+ * @file app/(app)/reports/page.tsx
+ * Lists available Voice-of-Customer reports for the workspace.
+ */
 "use client";
 
 import { useEffect, useState } from "react";
