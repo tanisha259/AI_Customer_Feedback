@@ -32,3 +32,4 @@ You can expect:
 <!-- policy-update -->
 <!-- oct-sec -->
 <!-- sec-sync -->
+<!-- oct2-sec -->
