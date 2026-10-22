@@ -79,3 +79,4 @@ Thank you for contributing! 🎉
 <!-- oct2-guideline -->
 <!-- oct13-contrib -->
 <!-- oct20-flow -->
+<!-- oct22-guidelines -->
